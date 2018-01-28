@@ -33,8 +33,7 @@ that has been **previously verified** and it's **not a spam**. If the post gets
 earn trustiness points that will increase his / her **reliability** in the community.
 
 In the contrary, if the user gets **reported**, he / she will loose the double of
-the maximum amount of points that he / she would have earned with a that person trust
-(`0.2 trustiness points`).
+the default trust points (`-0.2 trustiness points`).
 
 ## Trust or Report
 
