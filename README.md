@@ -32,7 +32,7 @@ that has been **previously verified** and it's **not a spam**. If the post gets
 **trusted** by other participants of the coinmunity the user is going to automatically
 earn trustiness points that will increase his / her **reliability** in the community.
 
-In the contrary, if the user gets **reported**, he / she will loose the double of
+In the contrary, if the user gets **reported**, he / she will lose the double of
 the default trust points (`-0.2 trustiness points`).
 
 ## Trust or Report
@@ -40,7 +40,7 @@ the default trust points (`-0.2 trustiness points`).
 When **trusting** a post we assume that you previously verified the information
 that you are trusting. This is why we ask for the **source** where you
 confirmed it. Each source will have it's level of authenticity that will influence the
-weight of the given trust. The person will be able to add a screenshot or the site
+weight of the given trust. The person will be able to add a screenshot or the link to the website
 where he / she verified the authenticity of the post.
 
 #### algorithm:
@@ -69,5 +69,5 @@ as long as he doesn't return over -10 points.
 
 In this case, the only way for the user to be able to be part of the community again,
 is to demonstrate his / her commitment to it. This can be done each time that you login
-into the platform. Each user will receive **0.5** every time he / she logs into the
+into the platform. Each user will receive **0.5** points every time he / she logs into the
 platform, with a maximum of **once per day**.
