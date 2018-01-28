@@ -50,10 +50,11 @@ he / she verified the authenticity of the post.
 
 *the default / initial value of a trust is always 0.1*
 
+`(trust / source_athenticity) * COUNT(post.trusts)`
+
 *Trusting can be done only by coinmunity members with at least 10
 trustiness points.*
 
-`(trust / source_athenticity) * COUNT(post.trusts)`
 
 The **reporting** of a post is quite similar to the trusting but, instead
 of the source, we will have the reason why this post has been reported.
