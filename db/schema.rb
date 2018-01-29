@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129165104) do
+ActiveRecord::Schema.define(version: 20180129170703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,12 +47,36 @@ ActiveRecord::Schema.define(version: 20180129165104) do
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
+  create_table "sources", force: :cascade do |t|
+    t.string "name"
+    t.integer "authenticity"
+    t.string "logo"
+    t.string "description"
+    t.string "domain"
+    t.boolean "secure_connection"
+    t.boolean "verified"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.integer "total_mentions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "trusts", force: :cascade do |t|
+    t.bigint "source_id"
+    t.bigint "user_id"
+    t.string "screenshot"
+    t.string "link"
+    t.integer "authenticity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["source_id"], name: "index_trusts_on_source_id"
+    t.index ["user_id"], name: "index_trusts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,4 +101,6 @@ ActiveRecord::Schema.define(version: 20180129165104) do
   add_foreign_key "posts", "reports"
   add_foreign_key "posts", "users"
   add_foreign_key "reports", "users"
+  add_foreign_key "trusts", "sources"
+  add_foreign_key "trusts", "users"
 end

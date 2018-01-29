@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :reports
+  has_many :trusts
 end
