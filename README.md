@@ -1,3 +1,29 @@
+<<<<<<< HEAD
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+=======
 # CoinMunity Functionality Explained
 
 ## Principals
@@ -71,3 +97,4 @@ In this case, the only way for the user to be able to be part of the community a
 is to demonstrate his / her commitment to it. This can be done each time that you login
 into the platform. Each user will receive **0.5** points every time he / she logs into the
 platform, with a maximum of **once per day**.
+>>>>>>> a4d0de03db583be3a85719ddb991680ba9ebd2eb
