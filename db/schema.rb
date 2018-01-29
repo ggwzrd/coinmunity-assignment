@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129164140) do
+ActiveRecord::Schema.define(version: 20180129165104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20180129164140) do
     t.boolean "is_spam", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "report_id"
+    t.index ["report_id"], name: "index_posts_on_report_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -32,6 +34,17 @@ ActiveRecord::Schema.define(version: 20180129164140) do
     t.bigint "tag_id", null: false
     t.index ["post_id", "tag_id"], name: "index_posts_tags_on_post_id_and_tag_id"
     t.index ["tag_id", "post_id"], name: "index_posts_tags_on_tag_id_and_post_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string "reason"
+    t.bigint "user_id"
+    t.string "screenshot"
+    t.string "link"
+    t.integer "authenticity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -53,11 +66,15 @@ ActiveRecord::Schema.define(version: 20180129164140) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.float "truthiness", default: 10.0
+    t.boolean "silenced", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "posts", "reports"
   add_foreign_key "posts", "users"
+  add_foreign_key "reports", "users"
 end
