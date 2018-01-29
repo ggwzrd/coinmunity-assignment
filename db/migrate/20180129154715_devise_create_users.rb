@@ -21,6 +21,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.inet     :current_sign_in_ip
       t.inet     :last_sign_in_ip
 
+      t.float    :truthiness, default: 10.0
+      t.boolean  :silenced, default: false
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at
