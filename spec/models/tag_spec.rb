@@ -8,15 +8,7 @@ RSpec.describe Tag, type: :model do
   end
 
   describe "association with post" do
-    let(:tag) { create :tag }
-    let(:user) { create :user }
-    let!(:post1) { create :post, user: user, tags: [tag] }
-    let!(:post2) { create :post, user: user, tags: [tag] }
-
-    it "has many posts" do
-      expect(tag.posts).to include(post1)
-      expect(tag.posts).to include(post2)
-    end
+      it { is_expected.to have_and_belong_to_many(:posts) }
   end
 
 end
