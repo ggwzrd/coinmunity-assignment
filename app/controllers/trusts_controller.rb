@@ -1,2 +1,3 @@
 class TrustsController < ApplicationController
+
 end
