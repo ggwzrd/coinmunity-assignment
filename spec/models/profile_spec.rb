@@ -9,13 +9,7 @@ RSpec.describe Profile, type: :model do
   end
 
   describe "association with user" do
-    let(:user) { create :user }
-
-    it "belongs to a user" do
-      profile = user.build_profile
-
-      expect(profile.user).to eq(user)
-    end
+    it { is_expected.to belong_to(:user) }
   end
 
 end

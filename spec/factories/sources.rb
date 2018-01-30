@@ -5,7 +5,7 @@ FactoryBot.define do
     logo "MyString"
     description "MyString"
     domain "MyString"
-    secure_connection false
-    verified false
+    secure_connection true
+    verified true
   end
 end
