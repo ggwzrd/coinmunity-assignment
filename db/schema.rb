@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129170944) do
+ActiveRecord::Schema.define(version: 20180130094443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,9 @@ ActiveRecord::Schema.define(version: 20180129170944) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "report_id"
+    t.bigint "trust_id"
     t.index ["report_id"], name: "index_posts_on_report_id"
+    t.index ["trust_id"], name: "index_posts_on_trust_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -109,6 +111,7 @@ ActiveRecord::Schema.define(version: 20180129170944) do
   end
 
   add_foreign_key "posts", "reports"
+  add_foreign_key "posts", "trusts"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "reports", "users"
