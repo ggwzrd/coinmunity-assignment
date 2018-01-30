@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
 
     respond_to do |format|
-      format.json{render status:202, json: post.as_json}
+      format.json{render status:200, json: post.as_json}
     end
   end
 
