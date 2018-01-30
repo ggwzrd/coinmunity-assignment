@@ -1,3 +1,3 @@
 class Source < ApplicationRecord
-  has_one :trust
+  has_many :trusts
 end
