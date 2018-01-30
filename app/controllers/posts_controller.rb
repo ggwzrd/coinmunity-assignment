@@ -19,10 +19,10 @@ class PostsController < ApplicationController
   def create
     post = Post.new(post_params)
 
-    if post.save!
+    if post.save
         render notice: "Post created",json: post.as_json
     else
-      render notice: "Post not created", json: post.errors.full_messages.join(", ")
+      render notice: "Post not created", json: post.errors.full_messages
     end
 
   end
