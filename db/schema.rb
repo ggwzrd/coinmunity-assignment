@@ -24,10 +24,6 @@ ActiveRecord::Schema.define(version: 20180130094443) do
     t.boolean "is_spam", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "report_id"
-    t.bigint "trust_id"
-    t.index ["report_id"], name: "index_posts_on_report_id"
-    t.index ["trust_id"], name: "index_posts_on_trust_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -56,6 +52,8 @@ ActiveRecord::Schema.define(version: 20180130094443) do
     t.integer "authenticity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "post_id"
+    t.index ["post_id"], name: "index_reports_on_post_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
@@ -87,6 +85,8 @@ ActiveRecord::Schema.define(version: 20180130094443) do
     t.integer "authenticity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "post_id"
+    t.index ["post_id"], name: "index_trusts_on_post_id"
     t.index ["source_id"], name: "index_trusts_on_source_id"
     t.index ["user_id"], name: "index_trusts_on_user_id"
   end
@@ -110,11 +110,11 @@ ActiveRecord::Schema.define(version: 20180130094443) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "posts", "reports"
-  add_foreign_key "posts", "trusts"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "reports", "posts"
   add_foreign_key "reports", "users"
+  add_foreign_key "trusts", "posts"
   add_foreign_key "trusts", "sources"
   add_foreign_key "trusts", "users"
 end

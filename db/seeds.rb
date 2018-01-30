@@ -25,73 +25,6 @@ reddit = Source.create!(name: "Reddit", authenticity: 3, logo: "reddit-logo.svg"
 facebook = Source.create!(name: "Facebook", authenticity: 3, logo: "facebook-logo.svg", description: "an American online social media and social networking service", domain: "reddit.com", secure_connection: true, verified: true)
 coinerd = Source.create!(name: "Coinerd", authenticity: 1, logo: "coinerd-logo.svg", description: "first crypto currencies sharing platform based on trust", domain: "coinerd.org", secure_connection: true, verified: true)
 
-puts "creating trusts..."
-
-trust_1 = Trust.create!(
-  source: google,
-  user: sebastian,
-  screenshot: "http://www.forexnewsnow.com/wp-content/uploads/2017/11/1_oD8k2h_UwRLIOv9-gM1wkg.png",
-  link: "www.google.com",
-  authenticity: 3,
-)
-
-trust_2 = Trust.create!(
-  source: twitter,
-  user: marc,
-  screenshot: "https://blockgeeks.com/wp-content/uploads/2016/11/infographics03-01-1.png",
-  link: "www.google.com",
-  authenticity: 1,
-)
-
-trust_3 = Trust.create!(
-  source: coinerd,
-  user: bruna,
-  screenshot: "https://www.hedgethink.com/wp-content/uploads/2015/11/Blockchain-technology-and-cryptocurrency.png",
-  link: "www.google.com",
-  authenticity: 2,
-)
-
-trust_4 = Trust.create!(
-  source: facebook,
-  user: adinda,
-  screenshot: "https://cdn-images-1.medium.com/max/1920/1*gqGlnvxMVd_yxtZBvI-zZw.png",
-  link: "www.google.com",
-  authenticity: 4,
-)
-
-puts "creating reports..."
-
-report_1 = Report.create!(
-  reason: "This source sucks.",
-  user: fandy,
-  screenshot: "https://i.ytimg.com/vi/1h2S-1hPs24/maxresdefault.jpg",
-  link: "www.google.com",
-  authenticity: 2,
-)
-
-report_2 = Report.create!(
-  reason: "This user is a hacker.",
-  user: sebastian,
-  screenshot: "https://i.ytimg.com/vi/lXez-MUjjoY/hqdefault.jpg",
-  link: "www.google.com",
-  authenticity: 3,
-)
-
-report_3 = Report.create!(
-  reason: "This user is a hacker.",
-  user: bruna,
-  screenshot: "https://i.ytimg.com/vi/QCBJVIdkXXo/hqdefault.jpg",
-  link: "www.google.com",
-  authenticity: 3,
-)
-
-report_4 = Report.create!(
-  reason: "This user is a hacker.",
-  user: marc,
-  screenshot: "https://i.ytimg.com/vi/07QopZxNWz0/maxresdefault.jpg",
-  link: "www.google.com",
-  authenticity: 3,
-)
 
 puts "creating posts..."
 
@@ -102,7 +35,6 @@ post_1 = Post.create!(
   is_spam: true,
   user: adinda,
   tags: [short_term_trade, market_capitalization],
-  trusts: [trust_1, trust_2]
 )
 
 post_2 = Post.create!(
@@ -112,7 +44,6 @@ post_2 = Post.create!(
   is_spam: false,
   user: bruna,
   tags: [long_term_trade, country_regulation],
-  reports: [report_1]
 )
 
 post_3 = Post.create!(
@@ -122,8 +53,6 @@ post_3 = Post.create!(
   is_spam: false,
   user: marc,
   tags: [long_term_trade],
-  trusts: [trust_3],
-  reports: [report_2, report_3],
 )
 
 post_4 = Post.create!(
@@ -133,7 +62,6 @@ post_4 = Post.create!(
   is_spam: false,
   user: sebastian,
   tags: [market_capitalization],
-  reports: [report_4],
 )
 
 post_5 = Post.create!(
@@ -143,5 +71,82 @@ post_5 = Post.create!(
   is_spam: false,
   user: fandy,
   tags: [country_regulation],
-  trusts: [trust_4]
+)
+
+puts "creating trusts..."
+
+trust_1 = Trust.create!(
+  source: google,
+  user: sebastian,
+  screenshot: "http://www.forexnewsnow.com/wp-content/uploads/2017/11/1_oD8k2h_UwRLIOv9-gM1wkg.png",
+  link: "www.google.com",
+  authenticity: 3,
+  post: post_1
+)
+
+trust_2 = Trust.create!(
+  source: twitter,
+  user: marc,
+  screenshot: "https://blockgeeks.com/wp-content/uploads/2016/11/infographics03-01-1.png",
+  link: "www.google.com",
+  authenticity: 1,
+  post: post_2
+)
+
+trust_3 = Trust.create!(
+  source: coinerd,
+  user: bruna,
+  screenshot: "https://www.hedgethink.com/wp-content/uploads/2015/11/Blockchain-technology-and-cryptocurrency.png",
+  link: "www.google.com",
+  authenticity: 2,
+  post: post_2
+
+)
+
+trust_4 = Trust.create!(
+  source: facebook,
+  user: adinda,
+  screenshot: "https://cdn-images-1.medium.com/max/1920/1*gqGlnvxMVd_yxtZBvI-zZw.png",
+  link: "www.google.com",
+  authenticity: 4,
+  post: post_4
+
+)
+
+puts "creating reports..."
+
+report_1 = Report.create!(
+  reason: "This source sucks.",
+  user: fandy,
+  screenshot: "https://i.ytimg.com/vi/1h2S-1hPs24/maxresdefault.jpg",
+  link: "www.google.com",
+  authenticity: 2,
+  post: post_4
+)
+
+report_2 = Report.create!(
+  reason: "This user is a hacker.",
+  user: sebastian,
+  screenshot: "https://i.ytimg.com/vi/lXez-MUjjoY/hqdefault.jpg",
+  link: "www.google.com",
+  authenticity: 3,
+  post: post_4
+)
+
+report_3 = Report.create!(
+  reason: "This user is a hacker.",
+  user: bruna,
+  screenshot: "https://i.ytimg.com/vi/QCBJVIdkXXo/hqdefault.jpg",
+  link: "www.google.com",
+  authenticity: 3,
+  post: post_2
+)
+
+report_4 = Report.create!(
+  reason: "This user is a hacker.",
+  user: marc,
+  screenshot: "https://i.ytimg.com/vi/07QopZxNWz0/maxresdefault.jpg",
+  link: "www.google.com",
+  authenticity: 3,
+  post: post_1
 )
