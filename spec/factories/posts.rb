@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :post do
-    content "MyText"
-    user_id nil
-    link "MyString"
-    images "MyString"
-    video "MyString"
+    content {Faker::TheFreshPrinceOfBelAir.quote}
+    user {create :user}
+    link {Faker::Internet.url}
+    images "https://placeimg.com/640/480/tech"
+    video ""
     is_spam false
   end
 end
