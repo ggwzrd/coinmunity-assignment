@@ -8,6 +8,5 @@ class Post < ApplicationRecord
   validates :link, presence: true
   validates :images, presence: true
   # validates :video, presence: true
-  validates :is_spam, presence: true
 
 end
