@@ -8,4 +8,5 @@ class Source < ApplicationRecord
   validates :domain, presence: true
   validates :secure_connection, presence: true
   validates :verified, presence: true
+  
 end

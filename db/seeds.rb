@@ -31,7 +31,7 @@ post_1 = Post.create!(
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis at quam eget mattis. Fusce convallis turpis in pellentesque efficitur. Nam velit dui, dapibus non vulputate sed, ultricies sit amet nulla. Nam ac consequat tortor.",
   link: "www.google.com",
   images: "http://thoughtforyourpenny.com/wp-content/uploads/cryptocurrency-image-1.jpg",
-  is_spam: true,
+  is_spam: false,
   user: adinda,
   tags: [short_term_trade, market_capitalization],
 )
