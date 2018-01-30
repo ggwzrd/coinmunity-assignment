@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  resources :trusts, only: [:new, :create]
-  resources :reports, only: [:new, :create]
+  resources :trusts, only: [:create]
+  resources :reports, only: [:create]
 
   resources :users, only: [:show] do
     get :posts

@@ -16,4 +16,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def create
+    post = Post.new(post_params)
+
+    if post.save
+        render notice: "Post created",json: post.as_json
+    else
+      render notice: "Post not created", json: post.errors.full_messages
+    end
+
+  end
+
+
+  def post_params
+    params.require(:post).permit(:content, :link, :images, :user_id )
+
+  end
 end
