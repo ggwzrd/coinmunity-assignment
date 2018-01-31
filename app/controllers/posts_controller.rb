@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class PostsController < BaseController
 
   def index
     posts = Post.where(is_spam: false)

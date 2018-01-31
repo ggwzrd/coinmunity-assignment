@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :trusts, only: [:create]
   resources :reports, only: [:create]
 
-  resources :users, only: [:show] do
+  resources :users, only: [] do
     get :posts
 
   end

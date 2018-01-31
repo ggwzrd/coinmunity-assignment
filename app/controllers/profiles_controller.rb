@@ -1,2 +1,2 @@
-class ProfilesController < ApplicationController
+class ProfilesController < BaseController
 end

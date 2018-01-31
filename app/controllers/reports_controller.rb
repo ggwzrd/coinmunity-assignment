@@ -1,4 +1,4 @@
-class ReportsController < ApplicationController
+class ReportsController < BaseController
 
   def create
     report = Report.new(report_params)
