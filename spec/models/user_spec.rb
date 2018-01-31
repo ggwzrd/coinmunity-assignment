@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
     let!(:trust1) { create :trust, post: post1, user: user2, source: source1 }
 
 
-    describe "set_truthiness" do
+    describe "calculate_truthiness" do
       it "returns 10 if the user has no trusts/reports and has never signed in" do
         user = User.new
         expect(user.calculate_truthiness).to eq(10)
@@ -52,6 +52,30 @@ RSpec.describe User, type: :model do
 
       it "calculates truthiness based on login and posts truthiness" do
         expect(user2.calculate_truthiness).to eq(10.8)
+      end
+    end
+
+    describe "update_truthiness" do
+      let!(:report) { create :report, post: post1, user: user2 }
+
+      it "changes the truthiness when a post gets a report" do
+        user1.update_truthiness
+        expect(user1.truthiness).to eq(9.65)
+      end
+
+      let(:source) { create :source, authenticity: 2}
+      let!(:trust) { create :trust, post: post2, source: source, user: user1 }
+
+      it "changes the truthiness when a post gets a trust" do
+        user2.update_truthiness
+        expect(user2.truthiness).to eq(10.85)
+      end
+
+      it "changes the truthiness when a user gets a new daily sign in" do
+        user2.sign_in_day_count = 3
+        user2.save!
+        user2.update_truthiness
+        expect(user2.truthiness).to eq(11.35)
       end
     end
   end

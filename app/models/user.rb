@@ -11,8 +11,9 @@ class User < ApplicationRecord
   has_many :trusts
   has_one :profile
 
-  def set_truthiness
-    truthiness = self.calculate_truthiness
+  def update_truthiness
+    self.truthiness = self.calculate_truthiness
+    self.save!
   end
 
   def calculate_truthiness
