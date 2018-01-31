@@ -1,5 +1,6 @@
 class PostsController < BaseController
-
+  skip_before_action :authenticate, only: [:index, :show]
+  
   def index
     posts = Post.where(is_spam: false)
 

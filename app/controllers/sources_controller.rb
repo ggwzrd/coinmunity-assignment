@@ -1,4 +1,5 @@
 class SourcesController < BaseController
+  skip_before_action :authenticate, only: [:index]
 
   def index
     sources = Source.all
