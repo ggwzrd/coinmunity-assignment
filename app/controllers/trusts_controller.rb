@@ -1,4 +1,4 @@
-class TrustsController < ApplicationController
+class TrustsController < BaseController
 
   def create
     temp_params = trust_params
