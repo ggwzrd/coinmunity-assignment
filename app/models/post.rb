@@ -14,13 +14,12 @@ class Post < ApplicationRecord
   end
 
   def calculate_reports_score
-    (reports.count * -0.2).round(4)
+    (reports.count * -0.2).round(2)
   end
 
   def calculate_trusts_score
     trusts.reduce(0) { |sum, trust|
-      sum + ((0.1/trust.source.authenticity) * trusts.count)
-    }.round(4)
+      sum + (0.1/trust.source.authenticity) }.round(2)
   end
 
 end
