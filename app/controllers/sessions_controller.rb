@@ -13,7 +13,4 @@ class SessionsController < Devise::RegistrationsController
     end
   end
 
-  
-
-
 end
