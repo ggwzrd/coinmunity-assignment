@@ -85,7 +85,7 @@ RSpec.describe Post, type: :model do
 
     describe "calculate_trusts_score" do
       it "returns the total score based on all trusts" do
-        expect(post1.calculate_trusts_score).to eq(0.36)
+        expect(post1.calculate_trusts_score).to eq(0.12)
       end
 
       it "returns 0 if there are no trusts" do
@@ -95,7 +95,7 @@ RSpec.describe Post, type: :model do
 
     describe "calculate_post_trustiness_score" do
       it "returns the trustiness of the post based on trusts and reports" do
-        expect(post1.calculate_post_trustiness_score).to eq(-0.24)
+        expect(post1.calculate_post_trustiness_score).to eq(-0.48)
       end
 
       it "returns 0 if there are no trusts or reports" do
