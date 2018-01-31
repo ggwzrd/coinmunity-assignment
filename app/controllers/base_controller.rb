@@ -25,6 +25,6 @@ class BaseController < ApplicationController
     def unauthorize
       render json: "User unauthorized"
       # head :unauthorized
-      # return false
+      return false
     end
   end
