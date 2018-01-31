@@ -1,9 +1,10 @@
 class UsersController < BaseController
-  # before_action :set_user, only: [:posts]
+  skip_before_action :authenticate, only: [:posts, :show]
+  before_action :set_user, only: [:posts]
 
   def show
-    # user = User.find(params[:id])
-    user = @user
+    user = User.find(params[:id])
+    # user = @user
 
     respond_to do |format|
       format.json{render status:200, json: user.as_json}
