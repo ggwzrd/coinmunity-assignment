@@ -1,7 +1,11 @@
 class TrustsController < BaseController
 
   def create
-    trust = Trust.new(trust_params)
+    temp_params = trust_params
+
+    temp_params[:user_id] = @user.id if !@user.nil?
+
+    trust = Trust.new(temp_params)
 
     if trust.save
       render notice: "Trust created",json: trust.as_json

@@ -1,5 +1,5 @@
 class UsersController < BaseController
-  before_action :set_user, only: [:posts]
+  # before_action :set_user, only: [:posts]
 
   def show
     # user = User.find(params[:id])
