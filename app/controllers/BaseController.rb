@@ -14,7 +14,8 @@ class BaseController < ApplicationController
     end
 
     def unauthorize
-      head :unauthorized
+      render json: @user.errors.full_messages
+      # head :unauthorized
       return false
     end
   end

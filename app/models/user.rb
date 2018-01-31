@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_secure_token
+  
 
   has_many :posts
   has_many :reports

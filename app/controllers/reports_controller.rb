@@ -12,7 +12,7 @@ class ReportsController < BaseController
   end
 
 
-
+  private
 
   def report_params
     params.require(:report).permit(:reason, :screenshot, :link, :post_id, :user_id)
