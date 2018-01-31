@@ -9,4 +9,10 @@ class Post < ApplicationRecord
   validates :images, presence: true
   # validates :video, presence: true
 
+  def calculate_reports_score
+    (reports.count * -0.2).round(4)
+  end
+
+
+
 end

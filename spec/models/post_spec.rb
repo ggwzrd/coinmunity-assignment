@@ -57,4 +57,22 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe "methods" do
+    let(:user1) { create :user }
+    let(:user2) { create :user }
+    let(:post) { create :post, user: user1 }
+
+    describe "calculate_reports_score" do
+      let!(:report1) { create :report, post: post, user: user2 }
+      let!(:report2) { create :report, post: post, user: user2 }
+      let!(:report3) { create :report, post: post, user: user2 }
+
+      it "returns the total score based on the number of reports" do
+        expect(post.calculate_reports_score).to eq(-0.6)
+      end
+    end
+
+    
+  end
+
 end
