@@ -1,4 +1,4 @@
-class ReportsController < ApplicationController
+class ReportsController < BaseController
 
   def create
     temp_params = report_params
