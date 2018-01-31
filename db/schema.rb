@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20180131093842) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.float "truthiness", default: 10.0
+    t.float "trustiness", default: 10.0
     t.boolean "silenced", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

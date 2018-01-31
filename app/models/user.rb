@@ -11,15 +11,15 @@ class User < ApplicationRecord
   has_many :trusts
   has_one :profile
 
-  def update_truthiness
-    self.truthiness = self.calculate_truthiness
+  def update_trustiness
+    self.trustiness = self.calculate_trustiness
     self.save!
   end
 
-  def calculate_truthiness
-    posts_truthiness = posts.reduce(0) { |sum, post|
-      sum + post.calculate_post_truthiness_score }
-    sign_in_truthiness = sign_in_day_count * 0.5
-    (10 + posts_truthiness + sign_in_truthiness).round(2)
+  def calculate_trustiness
+    posts_trustiness = posts.reduce(0) { |sum, post|
+      sum + post.calculate_post_trustiness_score }
+    sign_in_trustiness = sign_in_day_count * 0.5
+    (10 + posts_trustiness + sign_in_trustiness).round(2)
   end
 end
