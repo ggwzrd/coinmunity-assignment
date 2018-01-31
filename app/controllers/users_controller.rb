@@ -1,5 +1,5 @@
 class UsersController < BaseController
-  skip_before_action :authenticate, only: [:posts, :show]
+  # skip_before_action :authenticate, only: [:posts, :show]
   before_action :set_user, only: [:posts]
 
   def show
