@@ -8,6 +8,7 @@ class ReportsController < BaseController
     report = Report.new(temp_params)
 
     if report.save
+      report.post.user.update_truthiness
       render notice: "Report created",json: report.as_json
     else
       render notice: "Report not created", json: report.errors.full_messages
