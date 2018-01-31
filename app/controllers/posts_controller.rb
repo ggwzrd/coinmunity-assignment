@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     posts = Post.where(is_spam: false)
 
     respond_to do |format|
-      format.json{render status:200, json: posts.as_json(include: [:reports, trusts: {include: :source}] ) }
+      format.json{render status:200, json: posts.as_json(include: [:tags, :reports, trusts: {include: :source}] ) }
     end
   end
 
@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
 
     respond_to do |format|
-      format.json{render status:200, json: post.as_json(include: [:reports, trusts: {include: :source}] ) }
+      format.json{render status:200, json: post.as_json(include: [:tags, :reports, trusts: {include: :source}] ) }
     end
   end
 
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
 
   def post_params
-    params.require(:post).permit(:content, :link, :images, :user_id )
+    params.require(:post).permit(:content, :link, :images, :user_id, :tags )
 
   end
 end
