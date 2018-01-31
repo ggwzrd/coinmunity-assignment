@@ -1,4 +1,4 @@
-class UsersController < BaseController
+class UsersController < ApplicationController
   before_action :set_user, only: [:posts]
 
   def show

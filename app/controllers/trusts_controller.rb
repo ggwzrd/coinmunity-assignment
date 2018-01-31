@@ -1,4 +1,4 @@
-class TrustsController < BaseController
+class TrustsController < ApplicationController
 
   def create
     trust = Trust.new(trust_params)
