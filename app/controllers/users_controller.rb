@@ -16,7 +16,6 @@ class UsersController < BaseController
     respond_to do |format|
       format.json{render status:200, json: posts.as_json(include: [:reports, trusts: {include: :source}] ) }
     end
-
   end
 
   private
@@ -24,5 +23,4 @@ class UsersController < BaseController
   def set_user
     @user = User.find(params[:user_id])
   end
-
 end

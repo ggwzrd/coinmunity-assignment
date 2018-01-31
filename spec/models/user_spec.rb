@@ -21,4 +21,38 @@ RSpec.describe User, type: :model do
       it { is_expected.to have_one(:profile) }
     end
   end
+
+  describe "methods" do
+    let(:user1) { create :user, sign_in_day_count: 0 }
+    let(:user2) { create :user, sign_in_day_count: 2 }
+    let(:post1) { create :post, user: user1 }
+    let!(:post2) { create :post, user: user2 }
+
+    let!(:report1) { create :report, post: post1, user: user2 }
+    let!(:report2) { create :report, post: post2, user: user1 }
+
+    let(:source1) { create :source, authenticity: 2 }
+    let!(:trust1) { create :trust, post: post1, user: user2, source: source1 }
+
+
+    describe "set_trustiness" do
+      it "returns 10 if the user has no trusts/reports and has never signed in" do
+        user = User.new
+        expect(user.set_trustiness).to eq(10)
+      end
+
+      it "calculates trustiness based on login" do
+        user = User.new(sign_in_day_count: 2)
+        expect(user.set_trustiness).to eq(11)
+      end
+
+      it "calculates trustiness based on posts trustiness" do
+        expect(user1.set_trustiness).to eq(9.85)
+      end
+
+      it "calculates trustiness based on login and posts trustiness" do
+        expect(user2.set_trustiness).to eq(10.8)
+      end
+    end
+  end
 end
