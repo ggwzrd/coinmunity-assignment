@@ -1,6 +1,6 @@
 class PostsController < BaseController
   skip_before_action :authenticate, only: [:index, :show]
-  
+
   def index
     posts = Post.where(is_spam: false)
 
@@ -28,6 +28,29 @@ class PostsController < BaseController
         render notice: "Post created",json: post.as_json
     else
       render notice: "Post not created", json: post.errors.full_messages
+    end
+
+  end
+
+  def destroy
+
+    post = Post.find(params[:id])
+
+    return render status: 401, json: {
+      success: false,
+      message: 'You cannot delete other users posts!'
+    } if @user.id != post.user_id
+
+    if post.destroy
+      render status: 200, json: {
+        success: true,
+        message: 'Post removed'
+      }
+    else
+      render status: 400, json: {
+        success: false,
+        message: post.errors.full_messages
+      }
     end
 
   end

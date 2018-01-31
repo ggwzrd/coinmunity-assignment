@@ -57,6 +57,22 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe "Destroy post" do
+
+    let(:user1) {create :user}
+    let(:post1) { create :post, user: user1 }
+    let!(:report1) { create :report, post: post1, user: user1 }
+    let(:source1) { create :source, authenticity: 2 }
+    let!(:trust1) { create :trust, post: post1, user: user1, source: source1 }
+
+    it "does destroy trust and report, but not source" do
+      expect { post1.destroy }.to change(Report, :count).by(-1)
+                              .and change(Trust, :count).by(-1)
+                              .and change(Source, :count).by(0)
+    end
+  end
+
+
   describe "methods" do
     let(:user1) { create :user }
     let(:user2) { create :user }
