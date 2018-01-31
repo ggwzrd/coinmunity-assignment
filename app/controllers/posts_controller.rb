@@ -17,7 +17,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
+
+    temp_params = post_params
+
+    temp_params[:user_id] = @user.id if !@user.nil?
+    post = Post.new(temp_params)
 
     if post.save
         render notice: "Post created",json: post.as_json

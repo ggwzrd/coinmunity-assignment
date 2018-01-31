@@ -1,5 +1,5 @@
-class UsersController < ApplicationController
-  before_action :set_user, only: [:posts]
+class UsersController < BaseController
+  # before_action :set_user, only: [:posts]
 
   def show
     # user = User.find(params[:id])
@@ -16,7 +16,6 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.json{render status:200, json: posts.as_json(include: [:reports, trusts: {include: :source}] ) }
     end
-
   end
 
   private
@@ -24,5 +23,4 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:user_id])
   end
-
 end

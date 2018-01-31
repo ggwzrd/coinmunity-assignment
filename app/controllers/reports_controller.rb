@@ -1,7 +1,11 @@
 class ReportsController < ApplicationController
 
   def create
-    report = Report.new(report_params)
+    temp_params = report_params
+
+    temp_params[:user_id] = @user.id if !@user.nil?
+
+    report = Report.new(temp_params)
 
     if report.save
       render notice: "Report created",json: report.as_json
