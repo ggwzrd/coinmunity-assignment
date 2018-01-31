@@ -9,4 +9,18 @@ class Post < ApplicationRecord
   validates :images, presence: true
   # validates :video, presence: true
 
+  def calculate_post_trustiness_score
+    self.calculate_trusts_score + self.calculate_reports_score
+  end
+
+  def calculate_reports_score
+    (reports.count * -0.2).round(4)
+  end
+
+  def calculate_trusts_score
+    trusts.reduce(0) { |sum, trust|
+      sum + ((0.1/trust.source.authenticity) * trusts.count)
+    }.round(4)
+  end
+
 end

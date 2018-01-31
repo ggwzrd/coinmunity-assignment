@@ -57,4 +57,51 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe "methods" do
+    let(:user1) { create :user }
+    let(:user2) { create :user }
+    let(:post1) { create :post, user: user1 }
+    let!(:post2) { create :post, user: user2 }
+
+    let!(:report1) { create :report, post: post1, user: user2 }
+    let!(:report2) { create :report, post: post1, user: user2 }
+    let!(:report3) { create :report, post: post1, user: user2 }
+
+    let(:source1) { create :source, authenticity: 2 }
+    let(:source2) { create :source, authenticity: 5 }
+    let!(:trust1) { create :trust, post: post1, user: user2, source: source1 }
+    let!(:trust2) { create :trust, post: post1, user: user2, source: source1 }
+    let!(:trust3) { create :trust, post: post1, user: user2, source: source2 }
+
+    describe "calculate_reports_score" do
+      it "returns the total score based on the number of reports" do
+        expect(post1.calculate_reports_score).to eq(-0.6)
+      end
+
+      it "returns 0 if there are no reports" do
+        expect(post2.calculate_reports_score).to eq(0)
+      end
+    end
+
+    describe "calculate_trusts_score" do
+      it "returns the total score based on all trusts" do
+        expect(post1.calculate_trusts_score).to eq(0.36)
+      end
+
+      it "returns 0 if there are no trusts" do
+        expect(post2.calculate_trusts_score).to eq(0)
+      end
+    end
+
+    describe "calculate_post_trustiness_score" do
+      it "returns the trustiness of the post based on trusts and reports" do
+        expect(post1.calculate_post_trustiness_score).to eq(-0.24)
+      end
+
+      it "returns 0 if there are no trusts or reports" do
+        expect(post2.calculate_post_trustiness_score).to eq(0)
+      end
+    end
+  end
+
 end
