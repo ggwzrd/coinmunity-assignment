@@ -4,7 +4,8 @@ class BaseController < ApplicationController
     before_action :authenticate
 
     def authenticate
-      user_token = request.headers['X-USER-TOKEN']
+
+      user_token = bearer_token
       if user_token
         puts user_token
         @user = User.find_by_token(user_token)
@@ -13,6 +14,12 @@ class BaseController < ApplicationController
       else
         return unauthorize
       end
+    end
+
+    def bearer_token
+      pattern = /^Bearer /
+      header  = request.headers['Authorization']
+      header.gsub(pattern, '') if header && header.match(pattern)
     end
 
     def unauthorize
