@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   validates :images, presence: true
   # validates :video, presence: true
 
-  def calculate_post_trustiness_score
+  def calculate_post_truthiness_score
     self.calculate_trusts_score + self.calculate_reports_score
   end
 
