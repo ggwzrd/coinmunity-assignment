@@ -6,10 +6,13 @@ Tag.destroy_all
 Profile.destroy_all
 User.destroy_all
 
-short_term_trade = Tag.create!(name: "Short Term Trade", description: "Aenean vehicula varius mi.")
-long_term_trade = Tag.create!(name: "Long Term Trade", description: "Curabitur sagittis at quam eget mattis.")
-country_regulation = Tag.create!(name: "Country Regulation", description: "Fusce convallis turpis.")
-market_capitalization = Tag.create!(name: "Market Capitalization", description: "Nunc tempor ligula elit.")
+political = Tag.create!(name: "Political", description: "Aenean vehicula varius mi.")
+analysis = Tag.create!(name: "Analysis", description: "Curabitur sagittis at quam eget mattis.")
+news = Tag.create!(name: "News", description: "Fusce convallis turpis.")
+technical = Tag.create!(name: "Technical", description: "Nunc tempor ligula elit.")
+business = Tag.create!(name: "Business", description: "Fusce convallis turpis.")
+random = Tag.create!(name: "Random", description: "Nunc tempor ligula elit.")
+social = Tag.create!(name: "Social", description: "Fusce convallis turpis.")
 
 adinda = User.create!(email: "adinda@test.com", password: "abc123456")
 bruna = User.create!(email: "bruna@test.com", password: "1234567ab")
@@ -19,11 +22,11 @@ fandy = User.create!(email: "fandy@test.com", password: "1234567a")
 
 puts "creating sources..."
 
-google = Source.create!(name: "Google", authenticity: 5, logo: File.join(Rails.root, "/app/assets/images/google.svg"), description: "most used search engine in the world", domain: "google.com", secure_connection: true, verified: true)
-twitter = Source.create!(name: "Twitter", authenticity: 3, logo: File.join(Rails.root, "/app/assets/images/twitter.svg"), description: "online news and social networking service", domain: "twitter.com", secure_connection: true, verified: true)
-reddit = Source.create!(name: "Reddit", authenticity: 3, logo: File.join(Rails.root, "/app/assets/images/reddit.svg"), description: "an American social news aggregation, web content rating, and discussion website", domain: "reddit.com", secure_connection: true, verified: true)
-facebook = Source.create!(name: "Facebook", authenticity: 3, logo: File.join(Rails.root, "/app/assets/images/facebook.svg"), description: "an American online social media and social networking service", domain: "reddit.com", secure_connection: true, verified: true)
-coinerd = Source.create!(name: "Coinerd", authenticity: 1, logo: File.join(Rails.root, "/app/assets/images/logo.svg"), description: "first crypto currencies sharing platform based on trust", domain: "coinerd.org", secure_connection: true, verified: true)
+google = Source.create!(name: "Google", authenticity: 5, logo: "http://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/google.png", description: "most used search engine in the world", domain: "google.com", secure_connection: true, verified: true)
+twitter = Source.create!(name: "Twitter", authenticity: 3, logo: "http://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/twitter.svg", description: "online news and social networking service", domain: "twitter.com", secure_connection: true, verified: true)
+reddit = Source.create!(name: "Reddit", authenticity: 3, logo: "http://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/reddit.svg", description: "an American social news aggregation, web content rating, and discussion website", domain: "reddit.com", secure_connection: true, verified: true)
+facebook = Source.create!(name: "Facebook", authenticity: 3, logo: "http://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/facebook.svg", description: "an American online social media and social networking service", domain: "reddit.com", secure_connection: true, verified: true)
+coinerd = Source.create!(name: "Coinerd", authenticity: 1, logo: "http://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/logo.svg", description: "first crypto currencies sharing platform based on trust", domain: "coinerd.org", secure_connection: true, verified: true)
 
 puts "creating posts..."
 
@@ -33,7 +36,7 @@ post_1 = Post.create!(
   images: "http://thoughtforyourpenny.com/wp-content/uploads/cryptocurrency-image-1.jpg",
   is_spam: false,
   user: adinda,
-  tags: [short_term_trade, market_capitalization],
+  tags: [analysis, news],
 )
 
 post_2 = Post.create!(
@@ -42,7 +45,7 @@ post_2 = Post.create!(
   images: "https://steemit-production-imageproxy-upload.s3.amazonaws.com/DQmNgMH9gFniCBx4yXHp3XqVU2hBqGDbFW1c8W44JRBtbij",
   is_spam: false,
   user: bruna,
-  tags: [long_term_trade, country_regulation],
+  tags: [political, random, social],
 )
 
 post_3 = Post.create!(
@@ -51,7 +54,7 @@ post_3 = Post.create!(
   images: "https://www.dinheirovivo.pt/wp-content/uploads/2017/06/blockchain-740x415.jpg",
   is_spam: false,
   user: marc,
-  tags: [long_term_trade],
+  tags: [social, technical, news],
 )
 
 post_4 = Post.create!(
@@ -60,7 +63,7 @@ post_4 = Post.create!(
   images: "https://itsblockchain.com/wp-content/uploads/2017/06/cryptocurrency.jpg",
   is_spam: false,
   user: sebastian,
-  tags: [market_capitalization],
+  tags: [political, analysis],
 )
 
 post_5 = Post.create!(
@@ -69,7 +72,7 @@ post_5 = Post.create!(
   images: "https://cdn.geekwire.com/wp-content/uploads/2017/07/bigstock-Pixel-Bitcoin-Concept-164015408-630x416.jpg",
   is_spam: false,
   user: fandy,
-  tags: [country_regulation],
+  tags: [technical, business],
 )
 
 puts "creating trusts..."
