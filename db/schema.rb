@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20180131093842) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
+    t.integer "sign_in_day_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
@@ -109,6 +110,7 @@ ActiveRecord::Schema.define(version: 20180131093842) do
     t.string "token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["token"], name: "index_users_on_token", unique: true
   end
 
   add_foreign_key "posts", "users"

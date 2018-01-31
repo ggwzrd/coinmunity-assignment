@@ -12,7 +12,7 @@ class TrustsController < BaseController
   end
 
 
-
+  private
 
   def trust_params
     params.require(:trust).permit(:source_id, :screenshot, :link, :post_id , :user_id)

@@ -8,11 +8,12 @@ class SessionsController < Devise::RegistrationsController
     if user&.valid_password?(params[:password])
       render json: user.as_json(only: [:email, :token]), status: :created
     else
-      head(:unauthorized)
+      render json: user.error.full_messages
+      # head(:unauthorized)
     end
   end
 
-
+  
 
 
 end
