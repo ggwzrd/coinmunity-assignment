@@ -41,7 +41,7 @@ RSpec.describe Trust, type: :model do
         expect(user1.trustiness).to eq(-9.95)
       end
 
-      it "changes the user silenced when trustiness gets to -10 or higher" do
+      it "changes the user silenced when trustiness > -10" do
         trust2.update_trustiness_with_new_trust
         expect(user1.silenced).to eq(false)
       end
