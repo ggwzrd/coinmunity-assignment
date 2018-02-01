@@ -7,7 +7,18 @@ RSpec.describe Post, type: :model do
     it { is_expected.to validate_presence_of(:link) }
     it { is_expected.to validate_presence_of(:images) }
     # it { is_expected.to validate_presence_of(:video)}
-    it { is_expected.to validate_length_of(:content).is_at_most(500) }
+    it { is_expected.to validate_length_of(:summary).is_at_most(500) }
+    it { is_expected.to validate_length_of(:content).is_at_most(5000) }
+  end
+
+  describe "summarize" do
+    let(:user) { create :user }
+    let(:post1) { create :post, user: user }
+    
+    it "add a summary based on the content" do
+      post1.summary = post1.summarize
+      expect(post1.summary).not_to be(nil)
+    end
   end
 
   describe "associations" do
