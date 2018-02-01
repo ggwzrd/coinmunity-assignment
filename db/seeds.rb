@@ -91,7 +91,7 @@ post_5.save
 puts "creating trusts..."
 
 trust_1 = Trust.create!(
-  source: google,
+  source: coinerd,
   user: sebastian,
   screenshot: "http://www.forexnewsnow.com/wp-content/uploads/2017/11/1_oD8k2h_UwRLIOv9-gM1wkg.png",
   link: "www.google.com",
@@ -107,12 +107,11 @@ trust_2 = Trust.create!(
 )
 
 trust_3 = Trust.create!(
-  source: coinerd,
+  source: google,
   user: bruna,
   screenshot: "https://www.hedgethink.com/wp-content/uploads/2015/11/Blockchain-technology-and-cryptocurrency.png",
   link: "www.google.com",
-  post: post_2
-
+  post: post_4
 )
 
 trust_4 = Trust.create!(
@@ -121,8 +120,13 @@ trust_4 = Trust.create!(
   screenshot: "https://cdn-images-1.medium.com/max/1920/1*gqGlnvxMVd_yxtZBvI-zZw.png",
   link: "www.google.com",
   post: post_4
-
 )
+
+puts "updating trustiness based on trusts..."
+trust_1.update_trustiness_with_new_trust
+trust_2.update_trustiness_with_new_trust
+trust_3.update_trustiness_with_new_trust
+trust_4.update_trustiness_with_new_trust
 
 puts "creating reports..."
 
@@ -131,7 +135,7 @@ report_1 = Report.create!(
   user: fandy,
   screenshot: "https://i.ytimg.com/vi/1h2S-1hPs24/maxresdefault.jpg",
   link: "www.google.com",
-  post: post_4
+  post: post_3
 )
 
 report_2 = Report.create!(
@@ -139,7 +143,7 @@ report_2 = Report.create!(
   user: sebastian,
   screenshot: "https://i.ytimg.com/vi/lXez-MUjjoY/hqdefault.jpg",
   link: "www.google.com",
-  post: post_4
+  post: post_3
 )
 
 report_3 = Report.create!(
@@ -155,5 +159,11 @@ report_4 = Report.create!(
   user: marc,
   screenshot: "https://i.ytimg.com/vi/07QopZxNWz0/maxresdefault.jpg",
   link: "www.google.com",
-  post: post_1
+  post: post_5
 )
+
+puts "updating trustiness based on trusts..."
+report_1.update_trustiness_with_new_report
+report_2.update_trustiness_with_new_report
+report_3.update_trustiness_with_new_report
+report_4.update_trustiness_with_new_report
