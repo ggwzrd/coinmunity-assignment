@@ -4,6 +4,7 @@ class TagsController < ApplicationController
     tags = Tag.all.map do |tag|
       name = tag.name,
       description = tag.description,
+      icon = tag.icon,
       total_mentions = tag.total_mentions,
       todays_mentions = tag.todays_mentions
     end

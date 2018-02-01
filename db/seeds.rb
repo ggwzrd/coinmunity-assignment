@@ -6,7 +6,7 @@ Tag.destroy_all
 Profile.destroy_all
 User.destroy_all
 
-political = Tag.create!(name: "Political", description: "Aenean vehicula varius mi.")
+political = Tag.create!(name: "Political", description: "Aenean vehicula varius mi.", icon:"")
 analysis = Tag.create!(name: "Analysis", description: "Curabitur sagittis at quam eget mattis.")
 news = Tag.create!(name: "News", description: "Fusce convallis turpis.")
 technical = Tag.create!(name: "Technical", description: "Nunc tempor ligula elit.")
