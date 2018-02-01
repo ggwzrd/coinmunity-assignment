@@ -2,7 +2,7 @@ class PostsController < BaseController
   skip_before_action :authenticate, only: [:index, :show]
 
   def index
-    posts = Post.where(is_spam: false)
+    posts = Post.where(is_spam: false).sort_by {|post| post.created_at}.reverse
 
     respond_to do |format|
       format.json{render status:200, json: posts.as_json(include: [:user, :tags, :reports, trusts: {include: :source}] ) }
