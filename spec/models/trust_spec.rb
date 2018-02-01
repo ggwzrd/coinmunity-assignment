@@ -22,17 +22,24 @@ RSpec.describe Trust, type: :model do
   end
 
   describe "methods" do
-    describe "update_trustiness_with_new_report" do
+    describe "update_trustiness_with_new_trust" do
       let(:user1) { create :user }
       let(:user2) { create :user }
       let(:post) { create :post, user: user1 }
-      let!(:report) { create :report, post: post, user: user2 }
+      let(:source1) { create :source, authenticity: 2 }
+      let(:source2) { create :source, authenticity: 1 }
+      let!(:trust1) { create :trust, post: post, user: user2, source: source1 }
+      let!(:trust2) { create :trust, post: post, user: user2, source: source2 }
 
       it "changes the user trustiness" do
-        report.update_trustiness_with_new_report
-        expect(user1.trustiness).to eq(9.8)
+        trust1.update_trustiness_with_new_trust
+        expect(user1.trustiness).to eq(10.05)
+      end
+
+      it "changes the user trustiness based on source authenticity" do
+        trust2.update_trustiness_with_new_trust
+        expect(user1.trustiness).to eq(10.1)
       end
     end
   end
-
 end

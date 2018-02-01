@@ -4,7 +4,6 @@ class UsersController < BaseController
 
   def show
     user = User.find(params[:id])
-    # user = @user
 
     respond_to do |format|
       format.json{render status:200, json: user.as_json}

@@ -2,9 +2,7 @@ class ReportsController < BaseController
 
   def create
     temp_params = report_params
-
     temp_params[:user_id] = @user.id if !@user.nil?
-
     report = Report.new(temp_params)
 
     if report.save
@@ -13,9 +11,7 @@ class ReportsController < BaseController
     else
       render notice: "Report not created", json: report.errors.full_messages
     end
-
   end
-
 
   private
 

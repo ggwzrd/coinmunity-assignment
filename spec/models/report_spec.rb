@@ -18,4 +18,18 @@ RSpec.describe Report, type: :model do
     end
   end
 
+  describe "methods" do
+    describe "update_trustiness_with_new_report" do
+      let(:user1) { create :user }
+      let(:user2) { create :user }
+      let(:post) { create :post, user: user1 }
+      let!(:report) { create :report, post: post, user: user2 }
+
+      it "changes the user trustiness" do
+        report.update_trustiness_with_new_report
+        expect(user1.trustiness).to eq(9.8)
+      end
+    end
+  end
+
 end

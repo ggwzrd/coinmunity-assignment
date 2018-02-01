@@ -7,7 +7,8 @@ RSpec.describe Post, type: :model do
     it { is_expected.to validate_presence_of(:link) }
     it { is_expected.to validate_presence_of(:images) }
     # it { is_expected.to validate_presence_of(:video)}
-    it { is_expected.to validate_length_of(:content).is_at_most(500) }
+    it { is_expected.to validate_length_of(:summary).is_at_most(500) }
+    it { is_expected.to validate_length_of(:content).is_at_most(5000) }
   end
 
   describe "associations" do
@@ -57,8 +58,7 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  describe "Destroy post" do
-
+  describe "destroy post" do
     let(:user1) {create :user}
     let(:post1) { create :post, user: user1 }
     let!(:report1) { create :report, post: post1, user: user1 }
@@ -74,50 +74,14 @@ RSpec.describe Post, type: :model do
 
 
   describe "methods" do
-    let(:user1) { create :user }
-    let(:user2) { create :user }
-    let(:post1) { create :post, user: user1 }
-    let!(:post2) { create :post, user: user2 }
+    describe "summarize" do
+      let(:user) { create :user }
+      let(:post1) { create :post, user: user }
 
-    let!(:report1) { create :report, post: post1, user: user2 }
-    let!(:report2) { create :report, post: post1, user: user2 }
-    let!(:report3) { create :report, post: post1, user: user2 }
-
-    let(:source1) { create :source, authenticity: 2 }
-    let(:source2) { create :source, authenticity: 5 }
-    let!(:trust1) { create :trust, post: post1, user: user2, source: source1 }
-    let!(:trust2) { create :trust, post: post1, user: user2, source: source1 }
-    let!(:trust3) { create :trust, post: post1, user: user2, source: source2 }
-
-    describe "calculate_reports_score" do
-      it "returns the total score based on the number of reports" do
-        expect(post1.calculate_reports_score).to eq(-0.6)
-      end
-
-      it "returns 0 if there are no reports" do
-        expect(post2.calculate_reports_score).to eq(0)
-      end
-    end
-
-    describe "calculate_trusts_score" do
-      it "returns the total score based on all trusts" do
-        expect(post1.calculate_trusts_score).to eq(0.12)
-      end
-
-      it "returns 0 if there are no trusts" do
-        expect(post2.calculate_trusts_score).to eq(0)
-      end
-    end
-
-    describe "calculate_post_trustiness_score" do
-      it "returns the trustiness of the post based on trusts and reports" do
-        expect(post1.calculate_post_trustiness_score).to eq(-0.48)
-      end
-
-      it "returns 0 if there are no trusts or reports" do
-        expect(post2.calculate_post_trustiness_score).to eq(0)
+      it "add a summary based on the content" do
+        post1.summary = post1.summarize
+        expect(post1.summary).not_to be(nil)
       end
     end
   end
-
 end

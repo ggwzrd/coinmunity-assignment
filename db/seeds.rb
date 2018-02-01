@@ -38,6 +38,8 @@ post_1 = Post.create!(
   user: adinda,
   tags: [analysis, news],
 )
+post_1.summary = post_1.summarize
+post_1.save
 
 post_2 = Post.create!(
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis at quam eget mattis. Fusce convallis turpis in pellentesque efficitur. Nam velit dui, dapibus non vulputate sed, ultricies sit amet nulla. Nam ac consequat tortor. Nunc tempor ligula elit.",
@@ -75,6 +77,17 @@ post_5 = Post.create!(
   tags: [technical, business],
 )
 
+puts "Summarizing posts..."
+post_1.summary = post_1.summarize
+post_1.save
+post_2.summary = post_2.summarize
+post_2.save
+post_3.summary = post_3.summarize
+post_3.save
+post_4.summary = post_4.summarize
+post_4.save
+post_5.summary = post_5.summarize
+post_5.save
 puts "creating trusts..."
 
 trust_1 = Trust.create!(

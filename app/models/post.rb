@@ -4,9 +4,18 @@ class Post < ApplicationRecord
   has_many :trusts, dependent: :destroy
   has_many :reports, dependent: :destroy
 
-  validates :content, presence: true, length: { maximum: 500 }
+  validates :content, presence: true, length: {maximum: 5000}
+  validates :summary, length: { maximum: 500 }
   validates :link, presence: true
   validates :images, presence: true
   # validates :video, presence: true
+
+  def summarize
+    if self.content.length < 500
+      return self.content
+    else
+      return self.content[0..496]+"..."
+    end
+  end
 
 end
