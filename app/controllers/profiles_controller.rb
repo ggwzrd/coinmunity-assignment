@@ -14,9 +14,9 @@ class ProfilesController < BaseController
       @user.update_trustiness(LAST_NAME_TRUSTINESS_BONUS) if profile.last_name
       @user.update_trustiness(PICTURE_TRUSTINESS_BONUS) if profile.picture
       @user.update_trustiness(BIO_TRUSTINESS_BONUS) if profile.bio
-      render json: user.as_json, status: 201
+      render json: profile.as_json, status: 201
     else
-      render json: user.errors.full_messages, status: 422, notice: "Profile not created"
+      render json: profile.errors.full_messages, status: 422, notice: "Profile not created"
     end
   end
 
