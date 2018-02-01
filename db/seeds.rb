@@ -6,13 +6,13 @@ Tag.destroy_all
 Profile.destroy_all
 User.destroy_all
 
-political = Tag.create!(name: "Political", description: "Aenean vehicula varius mi.", icon:"")
-analysis = Tag.create!(name: "Analysis", description: "Curabitur sagittis at quam eget mattis.")
-news = Tag.create!(name: "News", description: "Fusce convallis turpis.")
-technical = Tag.create!(name: "Technical", description: "Nunc tempor ligula elit.")
-business = Tag.create!(name: "Business", description: "Fusce convallis turpis.")
-random = Tag.create!(name: "Random", description: "Nunc tempor ligula elit.")
-social = Tag.create!(name: "Social", description: "Fusce convallis turpis.")
+political = Tag.create!(name: "Political", description: "Aenean vehicula varius mi.", icon:"http://res.cloudinary.com/coinerd/image/upload/v1517483919/ic_account_balance_48px_nrnsi0.svg")
+analysis = Tag.create!(name: "Analysis", description: "Curabitur sagittis at quam eget mattis.", icon: "http://res.cloudinary.com/coinerd/image/upload/v1517483781/ic_trending_up_48px_i8zonp.svg")
+news = Tag.create!(name: "News", description: "Fusce convallis turpis.", icon: "http://res.cloudinary.com/coinerd/image/upload/v1517483880/ic_public_48px_kdmewm.svg")
+technical = Tag.create!(name: "Technical", description: "Nunc tempor ligula elit.", icon: "http://res.cloudinary.com/coinerd/image/upload/v1517483904/ic_important_devices_48px_ogxigq.svg")
+business = Tag.create!(name: "Business", description: "Fusce convallis turpis.", icon: "http://res.cloudinary.com/coinerd/image/upload/v1517483933/ic_card_travel_48px_ixduxk.svg")
+random = Tag.create!(name: "Random", description: "Nunc tempor ligula elit.", icon: "http://res.cloudinary.com/coinerd/image/upload/v1517483964/ic_shuffle_48px_aiw9iy.svg")
+social = Tag.create!(name: "Social", description: "Fusce convallis turpis.", icon: "http://res.cloudinary.com/coinerd/image/upload/v1517483971/ic_face_48px_ibkgwk.svg")
 
 adinda = User.create!(email: "adinda@test.com", password: "abc123456")
 bruna = User.create!(email: "bruna@test.com", password: "1234567ab")
