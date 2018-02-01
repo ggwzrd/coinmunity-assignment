@@ -23,6 +23,8 @@ class PostsController < BaseController
 
     temp_params[:user_id] = @user.id if !@user.nil?
     post = Post.new(temp_params)
+    # puts "Summarizing..."
+    post.summary = post.summarize
 
     if post.save
       render notice: "Post created",json: post.as_json
