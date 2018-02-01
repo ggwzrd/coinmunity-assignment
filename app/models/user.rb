@@ -20,7 +20,17 @@ class User < ApplicationRecord
   end
 
   def update_trustiness(amount)
-    self.trustiness = self.trustiness + amount
+    self.trustiness = (self.trustiness + amount).round(2)
+    self.save!
+    self.update_silenced_status
+  end
+
+  def update_silenced_status
+    if trustiness <-10
+      self.silenced = true
+    else
+      self.silenced = false
+    end
     self.save!
   end
 

@@ -23,7 +23,7 @@ RSpec.describe Trust, type: :model do
 
   describe "methods" do
     describe "update_trustiness_with_new_trust" do
-      let(:user1) { create :user }
+      let(:user1) { create :user, trustiness: -10.05, silenced: true }
       let(:user2) { create :user }
       let(:post) { create :post, user: user1 }
       let(:source1) { create :source, authenticity: 2 }
@@ -33,12 +33,17 @@ RSpec.describe Trust, type: :model do
 
       it "changes the user trustiness" do
         trust1.update_trustiness_with_new_trust
-        expect(user1.trustiness).to eq(10.05)
+        expect(user1.trustiness).to eq(-10)
       end
 
       it "changes the user trustiness based on source authenticity" do
         trust2.update_trustiness_with_new_trust
-        expect(user1.trustiness).to eq(10.1)
+        expect(user1.trustiness).to eq(-9.95)
+      end
+
+      it "changes the user silenced when trustiness gets to -10 or higher" do
+        trust2.update_trustiness_with_new_trust
+        expect(user1.silenced).to eq(false)
       end
     end
   end
