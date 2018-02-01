@@ -1,6 +1,6 @@
 class PostsController < BaseController
   skip_before_action :authenticate, only: [:index, :show]
-  
+
   def index
     posts = Post.where(is_spam: false)
 
@@ -25,14 +25,15 @@ class PostsController < BaseController
     post = Post.new(temp_params)
 
     if post.save
-        render notice: "Post created",json: post.as_json
+      render notice: "Post created",json: post.as_json
     else
       render notice: "Post not created", json: post.errors.full_messages
     end
 
   end
 
-
+  private
+  
   def post_params
     params.require(:post).permit(:content, :link, :images, :user_id, :tags )
 
