@@ -11,7 +11,7 @@ class UsersController < BaseController
   end
 
   def posts
-    posts = Post.where(user: @user).where(is_spam: false)
+    posts = Post.where(user: @user).where(is_spam: false).sort_by {|post| post.created_at}.reverse
 
     respond_to do |format|
       format.json{render status:200, json: posts.as_json(include: [:reports, trusts: {include: :source}] ) }
