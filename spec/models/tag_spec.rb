@@ -18,12 +18,19 @@ RSpec.describe Tag, type: :model do
       let(:user1) { create :user }
       let(:user2) { create :user }
       let(:post) { create :post, user: user1 }
-      let(:source) { create :source, authenticity: 2 }
-      let!(:trust) { create :trust, post: post, user: user2, source: source }
+      let(:source1) { create :source, authenticity: 2 }
+      let(:source2) { create :source, authenticity: 1 }
+      let!(:trust1) { create :trust, post: post, user: user2, source: source1 }
+      let!(:trust2) { create :trust, post: post, user: user2, source: source2 }
 
       it "changes the user trustiness" do
-        trust.update_trustiness_with_new_trust
+        trust1.update_trustiness_with_new_trust
         expect(user1.trustiness).to eq(10.05)
+      end
+
+      it "changes the user trustiness based on source authenticity" do
+        trust2.update_trustiness_with_new_trust
+        expect(user1.trustiness).to eq(10.1)
       end
     end
   end
