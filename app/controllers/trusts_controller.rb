@@ -3,12 +3,13 @@ class TrustsController < BaseController
   def create
     temp_params = trust_params
     temp_params[:user_id] = @user.id if !@user.nil?
-    trust = Trust.new(temp_params)
 
     return render status: 401, json: {
       success: false,
       message: 'You cannot trust with a trustiness below 0!'
     } if @user.trustiness < 0
+    
+    trust = Trust.new(temp_params)
 
     if trust.save
       trust.post.user.update_trustiness

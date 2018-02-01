@@ -3,12 +3,13 @@ class ReportsController < BaseController
   def create
     temp_params = report_params
     temp_params[:user_id] = @user.id if !@user.nil?
-    report = Report.new(temp_params)
-
+    
     return render status: 401, json: {
       success: false,
       message: 'You cannot report with a trustiness below 0!'
     } if @user.trustiness < 0
+
+    report = Report.new(temp_params)
 
     if report.save
       report.post.user.update_trustiness
