@@ -11,15 +11,22 @@ class User < ApplicationRecord
   has_many :trusts
   has_one :profile
 
-  def update_trustiness
-    self.trustiness = self.calculate_trustiness
+  DAILY_SIGN_IN_REWARD = 0.5
+
+  def update_trustiness(amount)
+    self.trustiness = self.trustiness + amount
     self.save!
   end
 
-  def calculate_trustiness
-    posts_trustiness = posts.reduce(0) { |sum, post|
-      sum + post.calculate_post_trustiness_score }
-    sign_in_trustiness = sign_in_day_count * 0.5
-    (10 + posts_trustiness + sign_in_trustiness).round(2)
+  def update_last_sign_in_date
+    self.last_sign_in_date = Date.today
+    self.save!
   end
+
+  def check_daily_sign_in
+    return if last_sign_in_date == Date.today
+    self.update_trustiness(DAILY_SIGN_IN_REWARD)
+    self.update_last_sign_in_date
+  end
+
 end

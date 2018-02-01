@@ -1,7 +1,5 @@
 class SessionsController < Devise::RegistrationsController
 
-  # respond_to :json
-
   def create
     user = User.where(email: params[:email]).first
 
@@ -12,5 +10,4 @@ class SessionsController < Devise::RegistrationsController
       # head(:unauthorized)
     end
   end
-
 end
