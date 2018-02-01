@@ -18,7 +18,6 @@ class PostsController < BaseController
   end
 
   def create
-
     temp_params = post_params
 
     temp_params[:user_id] = @user.id if !@user.nil?
@@ -29,11 +28,9 @@ class PostsController < BaseController
     else
       render notice: "Post not created", json: post.errors.full_messages
     end
-
   end
 
   def destroy
-
     post = Post.find(params[:id])
 
     return render status: 401, json: {
@@ -52,13 +49,11 @@ class PostsController < BaseController
         message: post.errors.full_messages
       }
     end
-
   end
 
   private
 
   def post_params
     params.require(:post).permit(:content, :link, :images, :user_id, :tags )
-
   end
 end
