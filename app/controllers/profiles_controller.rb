@@ -1,6 +1,8 @@
 class ProfilesController < BaseController
 
   def create
+    temp_params = profiles_params
+    temp_params[:user_id] = @user.id if !@user.nil?
     profile = Profile.new(profile_params)
 
     if user.save
@@ -12,5 +14,7 @@ class ProfilesController < BaseController
 
   private
 
-  params.require(:profiles).permit(:nickname, :first_name, :last_name, :picture, :bio)
+  def profiles
+    params.require(:profiles).permit(:nickname, :first_name, :last_name, :picture, :bio)
+  end
 end
