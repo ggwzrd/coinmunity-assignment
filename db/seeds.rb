@@ -33,18 +33,17 @@ puts "creating posts..."
 post_1 = Post.create!(
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis at quam eget mattis. Fusce convallis turpis in pellentesque efficitur. Nam velit dui, dapibus non vulputate sed, ultricies sit amet nulla. Nam ac consequat tortor.",
   link: "www.google.com",
-  images: "http://thoughtforyourpenny.com/wp-content/uploads/cryptocurrency-image-1.jpg",
+  remote_images_url: 'http://thoughtforyourpenny.com/wp-content/uploads/cryptocurrency-image-1.jpg',
   is_spam: false,
   user: adinda,
   tags: [analysis, news],
 )
-post_1.summary = post_1.summarize
-post_1.save
+
 
 post_2 = Post.create!(
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis at quam eget mattis. Fusce convallis turpis in pellentesque efficitur. Nam velit dui, dapibus non vulputate sed, ultricies sit amet nulla. Nam ac consequat tortor. Nunc tempor ligula elit.",
   link: "www.google.com",
-  images: "https://steemit-production-imageproxy-upload.s3.amazonaws.com/DQmNgMH9gFniCBx4yXHp3XqVU2hBqGDbFW1c8W44JRBtbij",
+  remote_images_url: "https://steemit-production-imageproxy-upload.s3.amazonaws.com/DQmNgMH9gFniCBx4yXHp3XqVU2hBqGDbFW1c8W44JRBtbij",
   is_spam: false,
   user: bruna,
   tags: [political, random, social],
@@ -53,7 +52,7 @@ post_2 = Post.create!(
 post_3 = Post.create!(
   content: "Aenean quis justo congue, aliquam dui et, varius lacus. Phasellus mollis commodo quam, sed tincidunt orci commodo sed. Vestibulum et massa eget justo dictum lacinia hendrerit sed sapien.",
   link: "www.google.com",
-  images: "https://www.dinheirovivo.pt/wp-content/uploads/2017/06/blockchain-740x415.jpg",
+  remote_images_url: "https://www.dinheirovivo.pt/wp-content/uploads/2017/06/blockchain-740x415.jpg",
   is_spam: false,
   user: marc,
   tags: [social, technical, news],
@@ -62,7 +61,7 @@ post_3 = Post.create!(
 post_4 = Post.create!(
   content: "In fringilla diam eget felis iaculis, non rutrum nisi ultrices. Vivamus in dapibus justo, ut vestibulum quam. Nulla in purus tincidunt, iaculis leo eget, finibus eros.",
   link: "www.google.com",
-  images: "https://itsblockchain.com/wp-content/uploads/2017/06/cryptocurrency.jpg",
+  remote_images_url: "https://itsblockchain.com/wp-content/uploads/2017/06/cryptocurrency.jpg",
   is_spam: false,
   user: sebastian,
   tags: [political, analysis],
@@ -71,7 +70,7 @@ post_4 = Post.create!(
 post_5 = Post.create!(
   content: "Fusce non ligula ligula. In quis est vitae felis scelerisque hendrerit commodo condimentum sapien. Aliquam justo nulla, fermentum id hendrerit quis, tincidunt id risus. Cras sollicitudin, ligula vel sollicitudin gravida, nisi turpis pretium leo, nec cursus elit eros eu eros.",
   link: "www.google.com",
-  images: "https://cdn.geekwire.com/wp-content/uploads/2017/07/bigstock-Pixel-Bitcoin-Concept-164015408-630x416.jpg",
+  remote_images_url: "https://cdn.geekwire.com/wp-content/uploads/2017/07/bigstock-Pixel-Bitcoin-Concept-164015408-630x416.jpg",
   is_spam: false,
   user: fandy,
   tags: [technical, business],

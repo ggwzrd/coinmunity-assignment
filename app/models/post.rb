@@ -7,7 +7,10 @@ class Post < ApplicationRecord
   validates :content, presence: true, length: {maximum: 5000}
   validates :summary, length: { maximum: 500 }
   validates :link, presence: true
-  validates :images, presence: true
+
+  mount_uploader :images, ImagesUploader
+  # validates :images, presence: true
+
   # validates :video, presence: true
 
   def summarize
