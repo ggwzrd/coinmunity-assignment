@@ -32,8 +32,31 @@ class PostsController < BaseController
 
   end
 
+  def destroy
+
+    post = Post.find(params[:id])
+
+    return render status: 401, json: {
+      success: false,
+      message: 'You cannot delete other users posts!'
+    } if @user.id != post.user_id
+
+    if post.destroy
+      render status: 200, json: {
+        success: true,
+        message: 'Post removed'
+      }
+    else
+      render status: 400, json: {
+        success: false,
+        message: post.errors.full_messages
+      }
+    end
+
+  end
+
   private
-  
+
   def post_params
     params.require(:post).permit(:content, :link, :images, :user_id, :tags )
 
