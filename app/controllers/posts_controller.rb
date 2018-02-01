@@ -24,6 +24,11 @@ class PostsController < BaseController
     post = Post.new(temp_params)
     post.summary = post.summarize
 
+    return render status: 401, json: {
+      success: false,
+      message: 'Your trustiness score is too low to post!'
+    } if @user.silenced
+
     if post.save
       render notice: "Post created",json: post.as_json
     else
