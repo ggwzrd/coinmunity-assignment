@@ -12,6 +12,11 @@ class ProfilesController < BaseController
     end
   end
 
+  def update
+    # Check if first_name, last_name, picture, bio were present before.
+    # If they were not present and are now provided, give trustiness points accordingly.
+  end
+
   private
 
   def profiles
