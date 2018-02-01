@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "posts#index"
 
   resources :posts
+  resources :tags, only: [:index]
 
   resources :trusts, only: [:create]
   resources :reports, only: [:create]
