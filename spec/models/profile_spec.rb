@@ -8,8 +8,10 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to validate_presence_of(:picture)}
   end
 
-  describe "association with user" do
-    it { is_expected.to belong_to(:user) }
+  describe "associations" do
+    describe "association with user" do
+      it { is_expected.to belong_to(:user) }
+    end
   end
 
 end

@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20180131093842) do
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
     t.integer "sign_in_day_count", default: 0, null: false
+    t.datetime "last_sign_in_date", default: "2018-02-01 00:00:00", null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"

@@ -12,7 +12,9 @@ RSpec.describe Source, type: :model do
     it { is_expected.to validate_presence_of(:verified) }
   end
 
-  describe "association with trust" do
-    it { is_expected.to have_many(:trusts) }
+  describe "associations" do
+    describe "association with trust" do
+      it { is_expected.to have_many(:trusts) }
+    end
   end
 end

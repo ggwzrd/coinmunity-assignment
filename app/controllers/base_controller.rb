@@ -4,7 +4,6 @@ class BaseController < ApplicationController
     before_action :authenticate
 
     def authenticate
-
       user_token = bearer_token
       if user_token
         puts user_token
