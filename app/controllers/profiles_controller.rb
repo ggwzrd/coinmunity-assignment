@@ -9,7 +9,7 @@ class ProfilesController < BaseController
     temp_params[:user_id] = @user.id if !@user.nil?
     profile = Profile.new(profile_params)
 
-    if user.save
+    if profile.save
       @user.update_trustiness(FIRST_NAME_TRUSTINESS_BONUS) if profile.first_name
       @user.update_trustiness(LAST_NAME_TRUSTINESS_BONUS) if profile.last_name
       @user.update_trustiness(PICTURE_TRUSTINESS_BONUS) if profile.picture
