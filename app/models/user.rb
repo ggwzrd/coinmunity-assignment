@@ -29,17 +29,4 @@ class User < ApplicationRecord
     self.update_last_sign_in_date
   end
 
-  # def update_trustiness
-  #   self.trustiness = self.calculate_trustiness
-  #   self.save!
-  # end
-  #
-  # def calculate_trustiness
-  #   posts_trustiness = posts.reduce(0) { |sum, post|
-  #     sum + post.calculate_post_trustiness_score }
-  #   sign_in_trustiness = sign_in_day_count * 0.5
-  #   (10 + posts_trustiness + sign_in_trustiness).round(2)
-  # end
-
-
 end
