@@ -34,12 +34,12 @@ RSpec.describe User, type: :model do
     end
 
     describe "update_silenced_status" do
-      it "sets silenced to false is a user has a trustiness => -10" do
+      it "sets silenced to false is a user has a trustiness > -10" do
         user1.update_silenced_status
         expect(user1.silenced).to eq(false)
       end
 
-      it "sets silenced to true is a user has a trustiness < -10" do
+      it "sets silenced to true is a user has a trustiness <= -10" do
         user2.update_silenced_status
         expect(user2.silenced).to eq(true)
       end
@@ -51,12 +51,17 @@ RSpec.describe User, type: :model do
         expect(user1.trustiness).to eq(-4)
       end
 
-      it "sets silenced to true when trustiness drops below -10" do
+      it "sets silenced to true when trustiness == -10" do
+        user1.update_trustiness(-1)
+        expect(user1.silenced).to eq(true)
+      end
+
+      it "sets silenced to true when trustiness < -10" do
         user1.update_trustiness(-2)
         expect(user1.silenced).to eq(true)
       end
 
-      it "sets silenced to false when trustiness gets to -10 or higher" do
+      it "sets silenced to false when trustiness > -10" do
         user2.update_trustiness(2)
         expect(user2.silenced).to eq(false)
       end

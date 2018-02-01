@@ -26,9 +26,9 @@ class User < ApplicationRecord
   end
 
   def update_silenced_status
-    if trustiness <-10
+    if trustiness <= -10 && !silenced
       self.silenced = true
-    else
+    elsif trustiness > -10 && silenced
       self.silenced = false
     end
     self.save!
