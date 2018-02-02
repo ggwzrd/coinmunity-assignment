@@ -4,7 +4,7 @@ RSpec.describe Profile, type: :model do
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:nickname) }
-    it { is_expected.to validate_length_of(:last_name).is_at_most(200) }
+    it { is_expected.to validate_length_of(:bio).is_at_most(200) }
   end
 
   describe "associations" do

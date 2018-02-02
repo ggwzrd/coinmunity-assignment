@@ -23,15 +23,8 @@ RSpec.describe User, type: :model do
   end
 
   describe "methods" do
-    let!(:user1) { create :user, trustiness: -9, last_sign_in_date: Date.yesterday }
-    let!(:user2) { create :user, trustiness: -11, last_sign_in_date: Date.today }
-
-    describe "update_last_sign_in_date" do
-      it "updates the last_sign_in_date to today" do
-        user1.update_last_sign_in_date
-        expect(user1.last_sign_in_date).to eq(Date.today)
-      end
-    end
+    let!(:user1) { create :user, trustiness: -9, last_sign_in_at: Date.yesterday }
+    let!(:user2) { create :user, trustiness: -11, last_sign_in_at: Date.today }
 
     describe "update_silenced_status" do
       it "sets silenced to false is a user has a trustiness > -10" do
@@ -75,7 +68,7 @@ RSpec.describe User, type: :model do
 
       it "updates the last_sign_in_date to today" do
         user1.check_daily_sign_in
-        expect(user2.last_sign_in_date).to eq(Date.today)
+        expect(user2.last_sign_in_at).to eq(Date.today)
       end
 
       it "does not give a trustiness bonus when a user has already signed in today" do
