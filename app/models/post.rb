@@ -8,11 +8,6 @@ class Post < ApplicationRecord
   validates :summary, length: { maximum: 500 }
   validates :link, presence: true
 
-  mount_uploader :images, ImagesUploader
-  # validates :images, presence: true
-
-  # validates :video, presence: true
-
   def summarize
     if self.content.length < 500
       return self.content
