@@ -2,7 +2,8 @@ class TagsController < ApplicationController
 
   def index
     tags = Tag.all.map do |tag|
-      {name: tag.name,
+      {id: tag.id,
+      name: tag.name,
       description: tag.description,
       icon: tag.icon,
       total_mentions: tag.total_mentions,
