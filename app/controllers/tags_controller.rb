@@ -1,4 +1,4 @@
-class TagsController < ApplicationController
+class TagsController < BaseController
   skip_before_action :authenticate, only: [:index]
 
 
