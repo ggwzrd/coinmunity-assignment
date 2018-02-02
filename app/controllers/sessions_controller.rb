@@ -1,15 +1,18 @@
-class SessionsController < Devise::RegistrationsController
+
+
+
+class SessionsController < Devise::SessionsController
+
+  protect_from_forgery with: :null_session
+  skip_before_action :verify_authenticity_token
+  
+  clear_respond_to
+  respond_to :json
 
   def create
-
-    user = User.where(email: params[:email]).first
-
-    if user&.valid_password?(params[:password])
-      user.check_daily_sign_in
-      render json: user.as_json(only: [:email, :token]), status: :created
-    else
-      render json: user.errors.full_messages
-      # head(:unauthorized)
-    end
+      super do
+        render json:  {email: resource.email, token: resource.token} and return
+      end
   end
+
 end

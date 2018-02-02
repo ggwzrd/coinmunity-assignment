@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :reports, only: [:create]
   resources :sources, only: [:index]
 
-  resources :users, only: [] do
+  resources :users, only: [:show] do
     get :posts
 
   end
