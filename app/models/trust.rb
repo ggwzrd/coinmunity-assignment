@@ -13,4 +13,8 @@ class Trust < ApplicationRecord
     self.post.user.update_trustiness(trust_trustiness)
   end
 
+  def derivated_trustiness
+    trust_trustiness = (DEFAULT_TRUST_TRUSTINESS/trust.source.authenticity).round(2)
+  end
+
 end

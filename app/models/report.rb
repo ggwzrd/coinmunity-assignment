@@ -12,4 +12,8 @@ class Report < ApplicationRecord
     self.post.user.update_trustiness(DEFAULT_REPORT_TRUSTINESS)
   end
 
+  def derivated_trustiness
+    DEFAULT_REPORT_TRUSTINESS
+  end
+
 end
