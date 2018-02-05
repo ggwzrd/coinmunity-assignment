@@ -8,20 +8,20 @@ class TrustsController < BaseController
       success: false,
       message: 'You cannot trust with a trustiness below 0!'
     } if @user.trustiness < 0
-    
-    trust = Trust.new(temp_params)
+
+    @trust = Trust.new(temp_params)
 
     if trust.save
-      trust.post.user.update_trustiness
-      render notice: "Trust created",json: trust.as_json
+      @trust.post.user.update_trustiness(@trust.trust_trustiness)
+      render notice: "Trust created",json: @trust.as_json
     else
-      render notice: "Trust not created", json: trust.errors.full_messages
+      render notice: "Trust not created", json: @trust.errors.full_messages
     end
   end
 
   private
 
   def trust_params
-    params.require(:trust).permit(:source_id, :screenshot, :link, :post_id , :user_id)
+    params.require(:trust).permit(:source_id, :comment, :screenshot, :link, :post_id , :user_id)
   end
 end
