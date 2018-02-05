@@ -14,11 +14,19 @@ business = Tag.create!(name: "Business", description: "Fusce convallis turpis.",
 random = Tag.create!(name: "Random", description: "Nunc tempor ligula elit.", icon: "http://res.cloudinary.com/coinerd/image/upload/v1517483964/ic_shuffle_48px_aiw9iy.svg")
 social = Tag.create!(name: "Social", description: "Fusce convallis turpis.", icon: "http://res.cloudinary.com/coinerd/image/upload/v1517483971/ic_face_48px_ibkgwk.svg")
 
-adinda = User.create!(email: "adinda@test.com", password: "abc123456")
-bruna = User.create!(email: "bruna@test.com", password: "1234567ab")
-marc = User.create!(email: "marc@test.com", password: "1234567abc")
-sebastian = User.create!(email: "sebastian@test.com", password: "1234567abcd")
-fandy = User.create!(email: "fandy@test.com", password: "1234567a")
+adinda = User.create!(email: "adinda@test.com", password: "a123456")
+bruna = User.create!(email: "bruna@test.com", password: "a123456")
+marc = User.create!(email: "marc@test.com", password: "a123456")
+sebastian = User.create!(email: "sebastian@test.com", password: "a123456")
+fandy = User.create!(email: "fandy@test.com", password: "a123456")
+
+puts "creating profiles..."
+
+profile_adinda = Profile.create!(user: adinda, nickname: "Ad1nda", first_name: "Adinda", last_name: "Bohte", picture: "http://res.cloudinary.com/abohte/image/upload/v1517830335/IMG_3789b_copy_ygxfyo.jpg")
+profile_bruna = Profile.create!(user: bruna, nickname: "Brun4", first_name: "Bruna", picture: "http://res.cloudinary.com/abohte/image/upload/v1517830874/IMG_20180202_171906_danwhd.jpg")
+profile_marc = Profile.create!(user: marc, nickname: "PamperBoy")
+profile_sebastian = Profile.create!(user: sebastian, nickname: "Sebastian1", picture: "https://res.cloudinary.com/abohte/image/upload/v1517831126/IMG_20180202_171906_rsnrfp.jpg")
+profile_fandy = Profile.create!(user: fandy, nickname: "Fandy03")
 
 puts "creating sources..."
 
@@ -87,11 +95,13 @@ post_4.summary = post_4.summarize
 post_4.save
 post_5.summary = post_5.summarize
 post_5.save
+
 puts "creating trusts..."
 
 trust_1 = Trust.create!(
   source: coinerd,
   user: sebastian,
+  comment: "Great indept analysis!",
   screenshot: "http://www.forexnewsnow.com/wp-content/uploads/2017/11/1_oD8k2h_UwRLIOv9-gM1wkg.png",
   link: "www.google.com",
   post: post_1
@@ -100,6 +110,7 @@ trust_1 = Trust.create!(
 trust_2 = Trust.create!(
   source: twitter,
   user: marc,
+  comment: "Hilarious and true.",
   screenshot: "https://blockgeeks.com/wp-content/uploads/2016/11/infographics03-01-1.png",
   link: "www.google.com",
   post: post_2
@@ -108,6 +119,7 @@ trust_2 = Trust.create!(
 trust_3 = Trust.create!(
   source: google,
   user: bruna,
+  comment: "Very nice, new way to look at things.",
   screenshot: "https://www.hedgethink.com/wp-content/uploads/2015/11/Blockchain-technology-and-cryptocurrency.png",
   link: "www.google.com",
   post: post_4
@@ -116,6 +128,7 @@ trust_3 = Trust.create!(
 trust_4 = Trust.create!(
   source: facebook,
   user: adinda,
+  comment: "Great insight!",
   screenshot: "https://cdn-images-1.medium.com/max/1920/1*gqGlnvxMVd_yxtZBvI-zZw.png",
   link: "www.google.com",
   post: post_4

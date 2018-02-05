@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20180131093842) do
   create_table "trusts", force: :cascade do |t|
     t.bigint "source_id"
     t.bigint "user_id"
+    t.string "comment"
     t.string "screenshot"
     t.string "link"
     t.integer "authenticity"
