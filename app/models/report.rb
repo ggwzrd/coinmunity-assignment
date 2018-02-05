@@ -8,8 +8,8 @@ class Report < ApplicationRecord
 
   DEFAULT_REPORT_TRUSTINESS = -0.2
 
-  def update_trustiness_with_new_report
-    self.post.user.update_trustiness(DEFAULT_REPORT_TRUSTINESS)
+  def report_trustiness
+    DEFAULT_REPORT_TRUSTINESS
   end
 
 end

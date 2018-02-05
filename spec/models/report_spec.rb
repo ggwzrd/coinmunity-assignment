@@ -19,19 +19,19 @@ RSpec.describe Report, type: :model do
   end
 
   describe "methods" do
-    describe "update_trustiness_with_new_report" do
+    describe "trust_trustiness" do
       let(:user1) { create :user, trustiness: -9.8, silenced: false }
       let(:user2) { create :user }
       let(:post) { create :post, user: user1 }
       let!(:report) { create :report, post: post, user: user2 }
 
-      it "changes the user trustiness" do
-        report.update_trustiness_with_new_report
+      it "is based on the default report trustiness" do
+        report.post.user.update_trustiness(report.report_trustiness)
         expect(user1.trustiness).to eq(-10)
       end
 
-      it "changes the user silenced when trustiness g<= -10" do
-        report.update_trustiness_with_new_report
+      it "changes the user silenced when trustiness <= -10" do
+        report.post.user.update_trustiness(report.report_trustiness)
         expect(user1.silenced).to eq(true)
       end
     end
