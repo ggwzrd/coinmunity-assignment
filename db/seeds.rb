@@ -28,6 +28,14 @@ profile_marc = Profile.create!(user: marc, nickname: "PamperBoy")
 profile_sebastian = Profile.create!(user: sebastian, nickname: "Sebastian1", picture: "https://res.cloudinary.com/abohte/image/upload/v1517831126/IMG_20180202_171906_rsnrfp.jpg")
 profile_fandy = Profile.create!(user: fandy, nickname: "Fandy03")
 
+puts "updating trustiness based on profiles..."
+adinda.update_trustiness(profile_adinda.first_name_trustiness)
+adinda.update_trustiness(profile_adinda.last_name_trustiness)
+adinda.update_trustiness(profile_adinda.picture_trustiness)
+bruna.update_trustiness(profile_bruna.first_name_trustiness)
+bruna.update_trustiness(profile_bruna.picture_trustiness)
+sebastian.update_trustiness(profile_sebastian.picture_trustiness)
+
 puts "creating sources..."
 
 google = Source.create!(name: "Google", authenticity: 5, logo: "http://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/google.png", description: "most used search engine in the world", domain: "google.com", secure_connection: true, verified: true)
@@ -84,7 +92,7 @@ post_5 = Post.create!(
   tags: [technical, business],
 )
 
-puts "Summarizing posts..."
+puts "summarizing posts..."
 post_1.summary = post_1.summarize
 post_1.save
 post_2.summary = post_2.summarize
@@ -175,7 +183,7 @@ report_4 = Report.create!(
 )
 
 puts "updating trustiness based on trusts..."
-report_1.update_trustiness_with_new_report
-report_2.update_trustiness_with_new_report
-report_3.update_trustiness_with_new_report
-report_4.update_trustiness_with_new_report
+report_1.post.user.update_trustiness(report_1.report_trustiness)
+report_2.post.user.update_trustiness(report_2.report_trustiness)
+report_3.post.user.update_trustiness(report_3.report_trustiness)
+report_4.post.user.update_trustiness(report_4.report_trustiness)
