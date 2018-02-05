@@ -135,10 +135,10 @@ trust_4 = Trust.create!(
 )
 
 puts "updating trustiness based on trusts..."
-trust_1.update_trustiness_with_new_trust
-trust_2.update_trustiness_with_new_trust
-trust_3.update_trustiness_with_new_trust
-trust_4.update_trustiness_with_new_trust
+trust_1.post.user.update_trustiness(trust_1.trust_trustiness)
+trust_2.post.user.update_trustiness(trust_2.trust_trustiness)
+trust_3.post.user.update_trustiness(trust_3.trust_trustiness)
+trust_4.post.user.update_trustiness(trust_4.trust_trustiness)
 
 puts "creating reports..."
 
