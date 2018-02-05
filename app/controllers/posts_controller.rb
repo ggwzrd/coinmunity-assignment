@@ -5,7 +5,14 @@ class PostsController < BaseController
     posts = Post.where(is_spam: false).sort_by {|post| post.created_at}.reverse
 
     respond_to do |format|
-      format.json{render status:200, json: posts.as_json(include: [:user, :tags, :reports, trusts: {include: :source}] ) }
+      format.json{render status:200, json: posts.as_json(
+        except: :content,
+        include: [
+          { user: { only: [:id, :trustiness], include: { profile: { only: [:id, :nickname, :picture] } } } },
+          { tags: { only: :id } },
+          { trusts: { only: :id } },
+          { reports: { only: :id }, include: { source: { only: :id } } },
+          ] ) }
     end
   end
 
@@ -13,7 +20,14 @@ class PostsController < BaseController
     post = Post.find(params[:id])
 
     respond_to do |format|
-      format.json{render status:200, json: post.as_json(include: [:user, :tags, :reports, trusts: {include: :source}] ) }
+      format.json{render status:200, json: post.as_json(
+        except: :summary,
+        include: [
+          { user: { only: [:id, :trustiness], include: { profile: { only: [:id, :nickname, :picture] } } } },
+          { tags: { only: :id } },
+          { trusts: { only: :id } },
+          { reports: { only: :id }, include: { source: { only: :id } } },
+          ] ) }
     end
   end
 
@@ -25,7 +39,7 @@ class PostsController < BaseController
       success: false,
       message: 'Your trustiness score is too low to post!'
     } if @user.silenced
-    
+
     post = Post.new(temp_params)
     post.summary = post.summarize
 
