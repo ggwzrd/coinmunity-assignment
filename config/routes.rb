@@ -14,5 +14,5 @@ Rails.application.routes.draw do
     get :posts
 
   end
-
+  mount ActionCable.server, at: '/cable'
 end
