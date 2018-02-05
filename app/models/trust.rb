@@ -3,6 +3,7 @@ class Trust < ApplicationRecord
   belongs_to :user
   belongs_to :post
 
+  validates :comment, presence: true
   # validates :screenshot, presence: true
   # validates :link, presence: true
 
