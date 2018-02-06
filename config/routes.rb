@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :trusts, only: [:create]
   resources :reports, only: [:create]
+  resources :comments, only: [:create]
   resources :sources, only: [:index]
 
   resources :users, only: [:show] do
