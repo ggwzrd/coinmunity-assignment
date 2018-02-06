@@ -6,6 +6,8 @@ Tag.destroy_all
 Profile.destroy_all
 User.destroy_all
 
+puts "creating tags..."
+
 political = Tag.create!(name: "Political", description: "Aenean vehicula varius mi.", icon:"http://res.cloudinary.com/coinerd/image/upload/v1517483919/ic_account_balance_48px_nrnsi0.svg")
 analysis = Tag.create!(name: "Analysis", description: "Curabitur sagittis at quam eget mattis.", icon: "http://res.cloudinary.com/coinerd/image/upload/v1517483781/ic_trending_up_48px_i8zonp.svg")
 news = Tag.create!(name: "News", description: "Fusce convallis turpis.", icon: "http://res.cloudinary.com/coinerd/image/upload/v1517483880/ic_public_48px_kdmewm.svg")
@@ -14,11 +16,14 @@ business = Tag.create!(name: "Business", description: "Fusce convallis turpis.",
 random = Tag.create!(name: "Random", description: "Nunc tempor ligula elit.", icon: "http://res.cloudinary.com/coinerd/image/upload/v1517483964/ic_shuffle_48px_aiw9iy.svg")
 social = Tag.create!(name: "Social", description: "Fusce convallis turpis.", icon: "http://res.cloudinary.com/coinerd/image/upload/v1517483971/ic_face_48px_ibkgwk.svg")
 
+puts "creating users..."
+
 adinda = User.create!(email: "adinda@test.com", password: "a123456")
 bruna = User.create!(email: "bruna@test.com", password: "a123456")
 marc = User.create!(email: "marc@test.com", password: "a123456")
 sebastian = User.create!(email: "sebastian@test.com", password: "a123456")
 fandy = User.create!(email: "fandy@test.com", password: "a123456")
+john = User.create!(email: "john@test.com", password: "a123456", trustiness: -11, silenced: true)
 
 puts "creating profiles..."
 
@@ -27,6 +32,8 @@ profile_bruna = Profile.create!(user: bruna, nickname: "Brun4", first_name: "Bru
 profile_marc = Profile.create!(user: marc, nickname: "PamperBoy")
 profile_sebastian = Profile.create!(user: sebastian, nickname: "Sebastian1", picture: "https://res.cloudinary.com/abohte/image/upload/v1517831126/IMG_20180202_171906_rsnrfp.jpg")
 profile_fandy = Profile.create!(user: fandy, nickname: "Fandy03")
+profile_john = Profile.create!(user: john, nickname: "Johnny")
+
 
 puts "updating trustiness based on profiles..."
 adinda.update_trustiness(profile_adinda.first_name_trustiness)
