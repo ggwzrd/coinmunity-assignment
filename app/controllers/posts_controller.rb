@@ -51,7 +51,7 @@ class PostsController < BaseController
           { tags: { only: :id } },
           { trusts: { only: :id } },
           { reports: { only: :id } },
-          ] ) }
+          ] ) 
     else
       render notice: "Post not created", json: post.errors.full_messages
     end
