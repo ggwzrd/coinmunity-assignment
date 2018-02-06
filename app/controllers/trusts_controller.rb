@@ -9,6 +9,11 @@ class TrustsController < BaseController
       message: 'You cannot trust with a trustiness below 0!'
     } if @user.trustiness < 0
 
+    return render status: 401, json: {
+      success: false,
+      message: 'You cannot trust your own posts!'
+    } if @user == Post.find(trust_params[:post_id]).user
+
     @trust = Trust.new(temp_params)
 
     if @trust.save

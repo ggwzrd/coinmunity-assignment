@@ -9,6 +9,11 @@ class ReportsController < BaseController
       message: 'You cannot report with a trustiness below 0!'
     } if @user.trustiness < 0
 
+    return render status: 401, json: {
+      success: false,
+      message: 'You cannot report your own posts!'
+    } if @user == Post.find(report_params[:post_id]).user
+
     @report = Report.new(temp_params)
 
     if @report.save
