@@ -7,7 +7,7 @@ class UsersController < BaseController
 
     respond_to do |format|
       format.json{render status:200, json: user.as_json(
-        only: [:id, :trustiness],
+        only: [:id, :trustiness, :silenced],
         include: :profile
         ) }
     end
