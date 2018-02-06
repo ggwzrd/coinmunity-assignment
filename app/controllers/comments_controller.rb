@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class CommentsController < BaseController
   def create
     temp_params = comment_params
     temp_params[:user_id] = @user.id if !@user.nil?
