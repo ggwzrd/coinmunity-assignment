@@ -17,9 +17,13 @@ module ApplicationCable
       # if verified_user = User.find_by_token('17xCzprsnRk5aUF6cHNrqtzK')
       if verified_user = User.find_by(token: token)
         # puts verified_user
+        # @userType = "known"
         verified_user
-      else
-        reject_unauthorized_connection
+
+      # else
+        # @userType = "unknown"
+
+        # reject_unauthorized_connection
       end
     end
 
