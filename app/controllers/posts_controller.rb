@@ -8,10 +8,10 @@ class PostsController < BaseController
       format.json{render status:200, json: posts.as_json(
         except: :content,
         include: [
-          { user: { only: [:id, :trustiness], include: { profile: { only: [:id, :nickname, :picture] } } } },
+          { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } },
           { tags: { only: :id } },
           { trusts: { only: :id } },
-          { reports: { only: :id }, include: { source: { only: :id } } },
+          { reports: { only: :id } },
           ] ) }
     end
   end
@@ -23,10 +23,10 @@ class PostsController < BaseController
       format.json{render status:200, json: post.as_json(
         except: :summary,
         include: [
-          { user: { only: [:id, :trustiness], include: { profile: { only: [:id, :nickname, :picture] } } } },
+          { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } },
           { tags: { only: :id } },
-          { trusts: { only: :id } },
-          { reports: { only: :id }, include: { source: { only: :id } } },
+          :trusts,
+          :reports,
           ] ) }
     end
   end
