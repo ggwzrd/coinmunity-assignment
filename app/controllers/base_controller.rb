@@ -5,14 +5,16 @@ class BaseController < ApplicationController
     def authenticate
       user_token = bearer_token
       if user_token
-        puts user_token
+        # puts user_token
         @user = User.find_by_token(user_token)
-        puts @user.id
+        # puts @user.id
         return unauthorize if @user.nil?
       else
         return unauthorize
       end
     end
+
+    private
 
     def bearer_token
       pattern = /^Bearer /
