@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :reports
   has_many :trusts
+  has_many :comments
   has_one :profile
 
   DAILY_SIGN_IN_REWARD = 0.5

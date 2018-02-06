@@ -62,7 +62,6 @@ post_1 = Post.create!(
   tags: [analysis, news],
 )
 
-
 post_2 = Post.create!(
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis at quam eget mattis. Fusce convallis turpis in pellentesque efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis at quam eget mattis. Fusce convallis turpis in pellentesque efficitur. Nam velit dui, dapibus non vulputate sed, ultricies sit amet nulla. Nam ac consequat tortor. Nam velit dui, dapibus non vulputate sed, ultricies sit amet nulla. Nam ac consequat tortor. Nunc tempor ligula elit.",
   link: "www.google.com",
@@ -194,3 +193,41 @@ report_1.post.user.update_trustiness(report_1.report_trustiness)
 report_2.post.user.update_trustiness(report_2.report_trustiness)
 report_3.post.user.update_trustiness(report_3.report_trustiness)
 report_4.post.user.update_trustiness(report_4.report_trustiness)
+
+puts "creating comments..."
+
+comment_1 = Comment.create!(
+  text: "Insightful stuff, keep up the posts!",
+  user: bruna,
+  post: post_1
+)
+
+comment_2 = Comment.create!(
+  text: "Made me speechless",
+  user: fandy,
+  post: post_1
+)
+
+comment_3 = Comment.create!(
+  text: "Utter garbage, I can never get back the minutes I spent reading this post and commenting on it :(",
+  user: marc,
+  post: post_5
+)
+
+comment_4 = Comment.create!(
+  text: "Got me thinking, not in a good way",
+  user: fandy,
+  post: post_3
+)
+
+comment_5 = Comment.create!(
+  text: "Really nice, love to read more of your thoughts",
+  user: adinda,
+  post: post_2
+)
+
+comment_6 = Comment.create!(
+  text: "Stupid",
+  user: john,
+  post: post_2
+)
