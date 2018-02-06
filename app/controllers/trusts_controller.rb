@@ -11,7 +11,7 @@ class TrustsController < BaseController
 
     @trust = Trust.new(temp_params)
 
-    if trust.save
+    if @trust.save
       @trust.post.user.update_trustiness(@trust.trust_trustiness)
       render notice: "Trust created",json: @trust.as_json
     else
