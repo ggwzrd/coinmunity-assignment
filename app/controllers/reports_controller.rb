@@ -18,7 +18,9 @@ class ReportsController < BaseController
 
     if @report.save
       @report.post.user.update_trustiness(@report.report_trustiness)
-      render notice: "Report created",json: @report.as_json
+      render notice: "Report created", json: @report.as_json(
+        include: { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } }
+      )
     else
       render notice: "Report not created", json: @report.errors.full_messages
     end

@@ -18,7 +18,9 @@ class TrustsController < BaseController
 
     if @trust.save
       @trust.post.user.update_trustiness(@trust.trust_trustiness)
-      render notice: "Trust created",json: @trust.as_json
+      render notice: "Trust created", json: @trust.as_json(
+        include: { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } }
+      )
     else
       render notice: "Trust not created", json: @trust.errors.full_messages
     end

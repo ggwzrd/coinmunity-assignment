@@ -11,7 +11,9 @@ class CommentsController < BaseController
     @comment = Comment.new(temp_params)
 
     if @comment.save
-      render notice: "Comment created",json: @comment.as_json
+      render notice: "Comment created", json: @comment.as_json(
+        include: { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } }
+      )
     else
       render notice: "Comment not created", json: @comment.errors.full_messages
     end
