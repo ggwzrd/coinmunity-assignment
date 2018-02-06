@@ -12,6 +12,7 @@ class PostsController < BaseController
           { tags: { only: :id } },
           { trusts: { only: :id } },
           { reports: { only: :id } },
+          { comments: { only: :id } },
           ] ) }
     end
   end
@@ -27,6 +28,7 @@ class PostsController < BaseController
           { tags: { only: :id } },
           :trusts,
           :reports,
+          :comments
           ] ) }
     end
   end
@@ -49,9 +51,7 @@ class PostsController < BaseController
         include: [
           { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } },
           { tags: { only: :id } },
-          { trusts: { only: :id } },
-          { reports: { only: :id } },
-          ] ) 
+          ] )
     else
       render notice: "Post not created", json: post.errors.full_messages
     end
