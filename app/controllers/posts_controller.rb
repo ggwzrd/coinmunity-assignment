@@ -44,7 +44,14 @@ class PostsController < BaseController
     post.summary = post.summarize
 
     if post.save
-      render notice: "Post created",json: post.as_json
+      render notice: "Post created",json: post.as_json(
+        except: :content,
+        include: [
+          { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } },
+          { tags: { only: :id } },
+          { trusts: { only: :id } },
+          { reports: { only: :id } },
+          ] ) }
     else
       render notice: "Post not created", json: post.errors.full_messages
     end
