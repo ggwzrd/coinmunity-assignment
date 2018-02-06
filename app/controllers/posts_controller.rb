@@ -1,6 +1,6 @@
 class PostsController < BaseController
-  skip_before_action :authenticate, only: [:index, :show]
 
+  skip_before_action :authenticate, only: [:index, :show]
   def index
     posts = Post.where(is_spam: false).sort_by {|post| post.created_at}.reverse
 
@@ -45,6 +45,8 @@ class PostsController < BaseController
 
     if post.save
       render notice: "Post created",json: post.as_json
+
+      ActionCable.server.broadcast("PostsChannel", post.as_json)
     else
       render notice: "Post not created", json: post.errors.full_messages
     end

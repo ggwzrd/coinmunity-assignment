@@ -4,9 +4,11 @@ class PostsChannel < ApplicationCable::Channel
     # posts = Post.all()
     # puts "Alllooohhaaaa"
     # stop_all_streams
+    # posts = Post.where(is_spam: false).sort_by {|post| post.created_at}.reverse
     stream_from "PostsChannel"
-    # ActionCable.server.broadcast "posts"
+    # ActionCable.server.broadcast("PostsChannel", posts)
   end
+
 
 
 

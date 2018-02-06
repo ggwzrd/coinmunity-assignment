@@ -1,7 +1,7 @@
 class BaseController < ApplicationController
     protect_from_forgery with: :null_session
     before_action :authenticate
-
+    
     def authenticate
       user_token = bearer_token
       if user_token
