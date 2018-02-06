@@ -16,7 +16,7 @@ module ApplicationCable
     def find_verified_user token
       # if verified_user = User.find_by_token('17xCzprsnRk5aUF6cHNrqtzK')
       if verified_user = User.find_by(token: token)
-        puts verified_user
+        # puts verified_user
         verified_user
       else
         reject_unauthorized_connection
