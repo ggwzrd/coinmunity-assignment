@@ -12,11 +12,14 @@ class SessionsController < Devise::SessionsController
         render json: {
           token: resource.token,
           id: resource.id,
-          trustiness: resource.trustiness,
-          silenced: resource.silenced,
-          nickname: resource.profile.nickname,
-          picture: resource.profile.picture } and return
+          nickname: resource.nickname } and return
+        # render json: {user: resource} and return
       end
+  end
+
+  private
+  def sign_up_params
+    params.require(:user).permit(:email, :password)
   end
 
 end

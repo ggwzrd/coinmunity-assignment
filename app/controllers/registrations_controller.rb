@@ -9,7 +9,8 @@ class RegistrationsController < Devise::RegistrationsController
         render json: {
           email: resource.email,
           token: resource.token,
-          id: resource.id} and return
+          id: resource.id,
+          nickname: resource.nickname} and return
         # render json: {user: resource} and return
       end
     end
