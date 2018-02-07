@@ -8,10 +8,11 @@ class PostsController < BaseController
       format.json{render status:200, json: posts.as_json(
         except: :content,
         include: [
-          { user: { only: [:id, :trustiness], include: { profile: { only: [:id, :nickname, :picture] } } } },
+          { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } },
           { tags: { only: :id } },
           { trusts: { only: :id } },
-          { reports: { only: :id }, include: { source: { only: :id } } },
+          { reports: { only: :id } },
+          { comments: { only: :id } },
           ] ) }
     end
   end
@@ -23,10 +24,11 @@ class PostsController < BaseController
       format.json{render status:200, json: post.as_json(
         except: :summary,
         include: [
-          { user: { only: [:id, :trustiness], include: { profile: { only: [:id, :nickname, :picture] } } } },
+          { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } },
           { tags: { only: :id } },
-          { trusts: { only: :id } },
-          { reports: { only: :id }, include: { source: { only: :id } } },
+          { trusts: { include: { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } } } },
+          { reports: { include: { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } } } },
+          { comments: { include: { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } } } },
           ] ) }
     end
   end
@@ -44,9 +46,18 @@ class PostsController < BaseController
     post.summary = post.summarize
 
     if post.save
+<<<<<<< HEAD
       render notice: "Post created",json: post.as_json
 
       ActionCable.server.broadcast("PostsChannel", post.as_json)
+=======
+      render notice: "Post created",json: post.as_json(
+        except: :content,
+        include: [
+          { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } },
+          { tags: { only: :id } },
+          ] )
+>>>>>>> 41e7b96c68d9f920eaa2ba4e97b78a468c760bb5
     else
       render notice: "Post not created", json: post.errors.full_messages
     end

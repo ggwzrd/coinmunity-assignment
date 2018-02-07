@@ -17,6 +17,10 @@ RSpec.describe User, type: :model do
       it { is_expected.to have_many(:trusts) }
     end
 
+    describe "association with comment" do
+      it { is_expected.to have_many(:comments) }
+    end
+
     describe "association with profile" do
       it { is_expected.to have_one(:profile) }
     end

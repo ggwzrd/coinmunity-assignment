@@ -56,17 +56,32 @@ RSpec.describe Post, type: :model do
         expect(post.reports).to include(report2)
       end
     end
+
+    describe "association with comment" do
+      let(:post) { create :post }
+
+      it "has many comments" do
+        comment1 = post.comments.new
+        comment2 = post.comments.new
+
+        expect(post.comments).to include(comment1)
+        expect(post.comments).to include(comment2)
+      end
+    end
   end
 
   describe "destroy post" do
     let(:user1) {create :user}
+    let(:user2) {create :user}
     let(:post1) { create :post, user: user1 }
-    let!(:report1) { create :report, post: post1, user: user1 }
+    let!(:report1) { create :report, post: post1, user: user2 }
+    let!(:comment1) { create :comment, post: post1, user: user2 }
     let(:source1) { create :source, authenticity: 2 }
-    let!(:trust1) { create :trust, post: post1, user: user1, source: source1 }
+    let!(:trust1) { create :trust, post: post1, user: user2, source: source1 }
 
-    it "does destroy trust and report, but not source" do
+    it "does destroy comment, trust and report, but not source" do
       expect { post1.destroy }.to change(Report, :count).by(-1)
+                              .and change(Comment, :count).by(-1)
                               .and change(Trust, :count).by(-1)
                               .and change(Source, :count).by(0)
     end

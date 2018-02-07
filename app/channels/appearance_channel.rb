@@ -9,12 +9,12 @@ class AppearanceChannel < ApplicationCable::Channel
   #   self.current_user = find_verified_user token
   # end
 
-  def check_user
-    if !current_user.is_a?(User)
-      reject
-    end
-
-  end
+  # def check_user
+  #   if !current_user.is_a?(User)
+  #     reject
+  #   end
+  #
+  # end
 
   def subscribed
     # stop_all_streams

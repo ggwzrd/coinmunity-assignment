@@ -9,7 +9,7 @@ class SessionsController < Devise::SessionsController
   def create
       super do
         resource.check_daily_sign_in
-        render json:  {email: resource.email, token: resource.token} and return
+        render json: { token: resource.token, id: resource.id, trustiness: resource.trustiness, silenced: resource.silenced, nickname: resource.profile.nickname, picture: resource.profile.picture } and return
       end
   end
 
