@@ -12,8 +12,11 @@ class SessionsController < Devise::SessionsController
         render json: {
           token: resource.token,
           id: resource.id,
-          nickname: resource.nickname } and return
-        # render json: {user: resource} and return
+          nickname: resource.profile.nickname,
+          picture: resource.profile.picture,
+          trustiness: resource.trustiness,
+          silenced: resource.silenced } and return
+        # render json: {resource} and return
       end
   end
 
