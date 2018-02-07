@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20180206135739) do
     t.string "nickname"
     t.string "first_name"
     t.string "last_name"
-    t.string "picture"
+    t.string "picture", default: "http://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/logo.svg"
     t.text "bio"
     t.bigint "user_id"
     t.datetime "created_at", null: false
