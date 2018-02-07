@@ -57,7 +57,7 @@ class PostsController < BaseController
 
       render notice: "Post created",json: jsonPost
 
-      ActionCable.server.broadcast("PostsChannel", jsonPost)
+      # ActionCable.server.broadcast("PostsChannel", jsonPost)
     else
       render notice: "Post not created", json: post.errors.full_messages
     end
