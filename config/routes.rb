@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :tags, only: [:index]
 
+
   resources :trusts, only: [:create]
   resources :reports, only: [:create]
   resources :comments, only: [:create]
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     get :posts
+    resources :profiles, only: [:create, :show, :update]
 
   end
   mount ActionCable.server, at: '/cable'

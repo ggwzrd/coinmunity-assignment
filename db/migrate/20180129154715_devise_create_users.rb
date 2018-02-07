@@ -21,6 +21,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.datetime :last_sign_in_at
       t.inet     :current_sign_in_ip
       t.inet     :last_sign_in_ip
+      t.string   :nickname, unique: true
 
       t.float    :trustiness, default: 10.0
       t.boolean  :silenced, default: false

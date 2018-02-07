@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 20180206135739) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "nickname"
     t.float "trustiness", default: 10.0
     t.boolean "silenced", default: false
     t.datetime "created_at", null: false
