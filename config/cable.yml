@@ -8,3 +8,15 @@ production:
   adapter: redis
   url: redis://localhost:6379/1
   channel_prefix: coinmunity-assignment_production
+
+# production:
+#   adapter: postgresql
+#   url: postgres://localhost/coinmunity-assignment_production
+#
+# development:
+#   adapter: postgresql
+#   url: postgres://localhost/coinmunity-assignment_development
+#
+# test:
+#   adapter: postgresql
+#   url: postgres://localhost/coinmunity-assignment_test
