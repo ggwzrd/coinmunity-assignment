@@ -29,14 +29,19 @@ class AppearanceChannel < ApplicationCable::Channel
     end
     # end
   end
-
+  #
+  # def rejected
+  #   puts "rejected some"
+  #   stop_all_streams
+  #
+  # end
   def unsubscribed
     if current_user.is_a?(User)
 
     # if @userType == "known"
       ActionCable.server.broadcast "AppearanceChannel", { user: current_user.email, user_id: current_user.id, online: :off }
-    else
-      reject
+    # else
+      # reject
     end
     # stop_all_streams
     # Any cleanup needed when channel is unsubscribed

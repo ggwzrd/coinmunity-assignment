@@ -46,18 +46,18 @@ class PostsController < BaseController
     post.summary = post.summarize
 
     if post.save
-<<<<<<< HEAD
-      render notice: "Post created",json: post.as_json
+      # render notice: "Post created",json: post.as_json
 
-      ActionCable.server.broadcast("PostsChannel", post.as_json)
-=======
-      render notice: "Post created",json: post.as_json(
+      jsonPost = post.as_json(
         except: :content,
         include: [
           { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } },
           { tags: { only: :id } },
           ] )
->>>>>>> 41e7b96c68d9f920eaa2ba4e97b78a468c760bb5
+
+      render notice: "Post created",json: jsonPost
+
+      ActionCable.server.broadcast("PostsChannel", jsonPost)
     else
       render notice: "Post not created", json: post.errors.full_messages
     end
