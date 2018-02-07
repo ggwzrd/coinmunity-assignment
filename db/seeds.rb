@@ -30,7 +30,7 @@ puts "creating profiles..."
 profile_adinda = Profile.create!(user: adinda, nickname: "Ad1nda", first_name: "Adinda", last_name: "Bohte", picture: "http://res.cloudinary.com/abohte/image/upload/v1517830335/IMG_3789b_copy_ygxfyo.jpg")
 profile_bruna = Profile.create!(user: bruna, nickname: "Brun4", first_name: "Bruna", picture: "http://res.cloudinary.com/abohte/image/upload/v1517830874/IMG_20180202_171906_danwhd.jpg")
 profile_marc = Profile.create!(user: marc, nickname: "PamperBoy")
-profile_sebastian = Profile.create!(user: sebastian, nickname: "Sebastian1", picture: "https://res.cloudinary.com/abohte/image/upload/v1517831126/IMG_20180202_171906_rsnrfp.jpg")
+profile_sebastian = Profile.create!(user: sebastian, nickname: "Sebastian1", picture: "http://res.cloudinary.com/duplhjlsw/image/upload/t_media_lib_thumb/v1518025636/moi5_rkrnqz.jpg")
 profile_fandy = Profile.create!(user: fandy, nickname: "Fandy03")
 profile_john = Profile.create!(user: john, nickname: "Johnny")
 
