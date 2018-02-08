@@ -35,6 +35,7 @@ class PostsController < BaseController
 
   def create
     temp_params = post_params
+    temp_params[:tag_ids] = tags_params
     temp_params[:user_id] = @user.id if !@user.nil?
 
     return render status: 401, json: {
@@ -86,7 +87,11 @@ class PostsController < BaseController
 
   private
 
+  def tags_params
+    params.require(:tag_ids)
+  end
+
   def post_params
-    params.require(:post).permit(:content, :link, :images, :user_id, :tags )
+    params.require(:post).permit(:content, :link, :images, :user_id, :tags)
   end
 end

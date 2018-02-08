@@ -1,7 +1,6 @@
 class TagsController < BaseController
   skip_before_action :authenticate, only: [:index]
 
-
   def index
     tags = Tag.all.map do |tag|
       {id: tag.id,
