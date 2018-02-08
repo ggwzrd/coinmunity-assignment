@@ -9,7 +9,7 @@ class PostsController < BaseController
         except: :content,
         include: [
           { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } },
-          { tags: { only: :id } },
+          { tags: { only: [:id, :name] } },
           { trusts: { only: :id } },
           { reports: { only: :id } },
           { comments: { only: :id } },
@@ -25,7 +25,7 @@ class PostsController < BaseController
         except: :summary,
         include: [
           { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } },
-          { tags: { only: :id } },
+          { tags: { only: [:id, :name] } },
           { trusts: { include: { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } } } },
           { reports: { include: { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } } } },
           { comments: { include: { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } } } },
@@ -53,7 +53,7 @@ class PostsController < BaseController
         except: :content,
         include: [
           { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } },
-          { tags: { only: :id } },
+          { tags: { only: [:id, :name] } },
           ] )
 
       render notice: "Post created",json: jsonPost
