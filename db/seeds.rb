@@ -27,11 +27,11 @@ john = User.create!(email: "john@test.com", password: "a123456", trustiness: -11
 
 puts "creating profiles..."
 
-profile_adinda = Profile.create!(user: adinda, nickname: "Ad1nda", first_name: "Adinda", last_name: "Bohte", picture: "https://res.cloudinary.com/abohte/image/upload/v1517830335/IMG_3789b_copy_ygxfyo.jpg")
-profile_bruna = Profile.create!(user: bruna, nickname: "Brun4", first_name: "Bruna", picture: "https://res.cloudinary.com/abohte/image/upload/v1517830874/IMG_20180202_171906_danwhd.jpg")
-profile_marc = Profile.create!(user: marc, nickname: "PamperBoy")
-profile_sebastian = Profile.create!(user: sebastian, nickname: "Sebastian1", picture: "https://res.cloudinary.com/duplhjlsw/image/upload/t_media_lib_thumb/v1518025636/moi5_rkrnqz.jpg")
-profile_fandy = Profile.create!(user: fandy, nickname: "Fandy03")
+profile_adinda = Profile.create!(user: adinda, nickname: "Ad1nda", first_name: "Adinda", last_name: "Bohte", picture: "https://res.cloudinary.com/abohte/image/upload/v1517830335/IMG_3789b_copy_ygxfyo.jpg", bio: "Born and raised in Amsterdam")
+profile_bruna = Profile.create!(user: bruna, nickname: "Brun4", first_name: "Bruna", last_name: "da Fonseca ", picture: "https://files.slack.com/files-pri/T904KFH98-F963L8FPU/image.png")
+profile_marc = Profile.create!(user: marc, nickname: "PamperBoy", first_name: "Marc", last_name: "Smalbrugge", picture: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAuyAAAAJDU4YTA5YzJhLWMwZDMtNDI0Ni04NzE1LWZiMTQ2MTU4ZGNjOA.jpg", bio: "I'm a frontend developer")
+profile_sebastian = Profile.create!(user: sebastian, nickname: "Sebastian1", first_name: "Sebastian", last_name: "van Hesteren", picture: "https://res.cloudinary.com/duplhjlsw/image/upload/t_media_lib_thumb/v1518025636/moi5_rkrnqz.jpg")
+profile_fandy = Profile.create!(user: fandy, first_name: "Fandy", nickname: "Fandy03", picture: "http://res.cloudinary.com/dp99fz03x/image/upload/v1518108074/13921070_10153845496642643_2682585086757744802_n_v9p8up.jpg")
 profile_john = Profile.create!(user: john, nickname: "Johnny")
 
 
@@ -39,9 +39,19 @@ puts "updating trustiness based on profiles..."
 adinda.update_trustiness(profile_adinda.first_name_trustiness)
 adinda.update_trustiness(profile_adinda.last_name_trustiness)
 adinda.update_trustiness(profile_adinda.picture_trustiness)
+adinda.update_trustiness(profile_adinda.bio_trustiness)
 bruna.update_trustiness(profile_bruna.first_name_trustiness)
+bruna.update_trustiness(profile_bruna.last_name_trustiness)
 bruna.update_trustiness(profile_bruna.picture_trustiness)
+marc.update_trustiness(profile_marc.first_name_trustiness)
+marc.update_trustiness(profile_marc.last_name_trustiness)
+marc.update_trustiness(profile_marc.picture_trustiness)
+marc.update_trustiness(profile_marc.bio_trustiness)
+sebastian.update_trustiness(profile_sebastian.first_name_trustiness)
+sebastian.update_trustiness(profile_sebastian.last_name_trustiness)
 sebastian.update_trustiness(profile_sebastian.picture_trustiness)
+fandy.update_trustiness(profile_fandy.first_name_trustiness)
+fandy.update_trustiness(profile_fandy.picture_trustiness)
 
 puts "creating sources..."
 
