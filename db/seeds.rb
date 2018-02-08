@@ -27,10 +27,10 @@ john = User.create!(email: "john@test.com", password: "a123456", trustiness: -11
 
 puts "creating profiles..."
 
-profile_adinda = Profile.create!(user: adinda, nickname: "Ad1nda", first_name: "Adinda", last_name: "Bohte", picture: "http://res.cloudinary.com/abohte/image/upload/v1517830335/IMG_3789b_copy_ygxfyo.jpg")
-profile_bruna = Profile.create!(user: bruna, nickname: "Brun4", first_name: "Bruna", picture: "http://res.cloudinary.com/abohte/image/upload/v1517830874/IMG_20180202_171906_danwhd.jpg")
+profile_adinda = Profile.create!(user: adinda, nickname: "Ad1nda", first_name: "Adinda", last_name: "Bohte", picture: "https://res.cloudinary.com/abohte/image/upload/v1517830335/IMG_3789b_copy_ygxfyo.jpg")
+profile_bruna = Profile.create!(user: bruna, nickname: "Brun4", first_name: "Bruna", picture: "https://res.cloudinary.com/abohte/image/upload/v1517830874/IMG_20180202_171906_danwhd.jpg")
 profile_marc = Profile.create!(user: marc, nickname: "PamperBoy")
-profile_sebastian = Profile.create!(user: sebastian, nickname: "Sebastian1", picture: "http://res.cloudinary.com/duplhjlsw/image/upload/t_media_lib_thumb/v1518025636/moi5_rkrnqz.jpg")
+profile_sebastian = Profile.create!(user: sebastian, nickname: "Sebastian1", picture: "https://res.cloudinary.com/duplhjlsw/image/upload/t_media_lib_thumb/v1518025636/moi5_rkrnqz.jpg")
 profile_fandy = Profile.create!(user: fandy, nickname: "Fandy03")
 profile_john = Profile.create!(user: john, nickname: "Johnny")
 
@@ -45,27 +45,20 @@ sebastian.update_trustiness(profile_sebastian.picture_trustiness)
 
 puts "creating sources..."
 
-google = Source.create!(name: "Google", authenticity: 5, logo: "http://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/google.png", description: "most used search engine in the world", domain: "google.com", secure_connection: true, verified: true)
-twitter = Source.create!(name: "Twitter", authenticity: 3, logo: "http://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/twitter.svg", description: "online news and social networking service", domain: "twitter.com", secure_connection: true, verified: true)
-reddit = Source.create!(name: "Reddit", authenticity: 3, logo: "http://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/reddit.svg", description: "an American social news aggregation, web content rating, and discussion website", domain: "reddit.com", secure_connection: true, verified: true)
-facebook = Source.create!(name: "Facebook", authenticity: 3, logo: "http://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/facebook.svg", description: "an American online social media and social networking service", domain: "reddit.com", secure_connection: true, verified: true)
-coinerd = Source.create!(name: "Coinerd", authenticity: 1, logo: "http://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/logo.svg", description: "first crypto currencies sharing platform based on trust", domain: "coinerd.org", secure_connection: true, verified: true)
+google = Source.create!(name: "Google", authenticity: 5, logo: "https://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/google.png", description: "most used search engine in the world", domain: "google.com", secure_connection: true, verified: true)
+twitter = Source.create!(name: "Twitter", authenticity: 3, logo: "https://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/twitter.svg", description: "online news and social networking service", domain: "twitter.com", secure_connection: true, verified: true)
+reddit = Source.create!(name: "Reddit", authenticity: 3, logo: "https://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/reddit.svg", description: "an American social news aggregation, web content rating, and discussion website", domain: "reddit.com", secure_connection: true, verified: true)
+facebook = Source.create!(name: "Facebook", authenticity: 3, logo: "https://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/facebook.svg", description: "an American online social media and social networking service", domain: "reddit.com", secure_connection: true, verified: true)
+coinerd = Source.create!(name: "Coinerd", authenticity: 1, logo: "https://res.cloudinary.com/dyyxiefx5/image/upload/v1517396145/coinmunity-logos/logo.svg", description: "first crypto currencies sharing platform based on trust", domain: "coinerd.org", secure_connection: true, verified: true)
 
 puts "creating posts..."
 
 post_1 = Post.create!(
-  content: "In a hearing today before the Senate Banking Committee, Securities and Exchange Commission Chairman Jay Clayton and Commodity Futures Trading Commission Chairman Christopher Giancarlo opened up about what the near-term U.S. regulatory fate of cryptocurrency might look like. In a week of plunging prices and bad news, the hearing struck a tone that coin watchers could reasonably interpret as surprisingly optimistic.
-
-Over the course of the open hearing, Clayton and Giancarlo traded testimony over what can be regulated, what should be regulated and how, while offering a broader outlook on the long-term future of virtual currency markets and blockchain tech.
-
-The testimony drew a useful distinction among three pillars of the virtual currency ecosystem (for lack of a better unifying term): cryptocurrencies, “a replacement for dollars;” ICOs, “like a stock offering;” and distributed ledger technologies, or the technical framework generally known as blockchain.
-
-Throughout the hearing, on the SEC side, Clayton struck a relatively solemn tone focused on ICO fraud concerns, while the CFTC’s Giancarlo came across as genuinely enthusiastic and curious about the emerging market.",
-
-  link: "https://techcrunch.com/2018/02/06/virtual-currencies-oversight-hearing-sec-cftc-bitcoin/",
-  images: 'https://tctechcrunch2011.files.wordpress.com/2018/02/gettyimages-914923306.jpg?w=659&zoom=2',
+  content: "The Super Aggregator OnBlockchains.org is my own aggregator. I put it together using Feedly as a river of news from 207 sources, coupled with a WordPress site to publish it. It has 231,00 followers on Feedly, and I continuously update the sources. I did it to scratch my own itch, and made it publicly available. It is very comprehensive, and spits out 200-300 stories per day. If you are a blockchain news junkie, you will get your fix there. It already includes all of the below mentioned sources that have a web page. And you can search a collection of about 200,000 articles on the topic.",
+  link: "http://startupmanagement.org/2017/06/06/the-ultimate-reading-list-for-blockchain-token-and-cryptocurrency-sources/",
+  images: 'https://tctechcrunch2011.files.wordpress.com/2014/12/a-real-bitcoin.jpg?w=659&zoom=2',
   is_spam: false,
-  user: adinda,
+  user: john,
   tags: [political, news],
 )
 
@@ -182,6 +175,22 @@ Now is the time to make your digital fortune. Pick up the Beginner’s Guide to 
   tags: [social, random, news],
 )
 
+post_7 = Post.create!(
+  content: "In a hearing today before the Senate Banking Committee, Securities and Exchange Commission Chairman Jay Clayton and Commodity Futures Trading Commission Chairman Christopher Giancarlo opened up about what the near-term U.S. regulatory fate of cryptocurrency might look like. In a week of plunging prices and bad news, the hearing struck a tone that coin watchers could reasonably interpret as surprisingly optimistic.
+
+Over the course of the open hearing, Clayton and Giancarlo traded testimony over what can be regulated, what should be regulated and how, while offering a broader outlook on the long-term future of virtual currency markets and blockchain tech.
+
+The testimony drew a useful distinction among three pillars of the virtual currency ecosystem (for lack of a better unifying term): cryptocurrencies, “a replacement for dollars;” ICOs, “like a stock offering;” and distributed ledger technologies, or the technical framework generally known as blockchain.
+
+Throughout the hearing, on the SEC side, Clayton struck a relatively solemn tone focused on ICO fraud concerns, while the CFTC’s Giancarlo came across as genuinely enthusiastic and curious about the emerging market.",
+
+  link: "https://techcrunch.com/2018/02/06/virtual-currencies-oversight-hearing-sec-cftc-bitcoin/",
+  images: 'https://tctechcrunch2011.files.wordpress.com/2018/02/gettyimages-914923306.jpg?w=659&zoom=2',
+  is_spam: false,
+  user: adinda,
+  tags: [political, news],
+)
+
 puts "summarizing posts..."
 post_1.summary = post_1.summarize
 post_1.save
@@ -195,6 +204,8 @@ post_5.summary = post_5.summarize
 post_5.save
 post_6.summary = post_6.summarize
 post_6.save
+post_7.summary = post_7.summarize
+post_7.save
 
 puts "creating trusts..."
 
@@ -204,7 +215,7 @@ trust_1 = Trust.create!(
   comment: "Great indept analysis!",
   screenshot: "http://www.forexnewsnow.com/wp-content/uploads/2017/11/1_oD8k2h_UwRLIOv9-gM1wkg.png",
   link: "www.google.com",
-  post: post_1
+  post: post_7
 )
 
 trust_2 = Trust.create!(
@@ -285,19 +296,19 @@ puts "creating comments..."
 comment_1 = Comment.create!(
   text: "Insightful stuff, keep up the posts!",
   user: bruna,
-  post: post_1
+  post: post_7
 )
 
 comment_2 = Comment.create!(
   text: "Made me speechless",
   user: fandy,
-  post: post_1
+  post: post_6
 )
 
 comment_3 = Comment.create!(
   text: "Utter garbage, I can never get back the minutes I spent reading this post and commenting on it :(",
   user: marc,
-  post: post_5
+  post: post_1
 )
 
 comment_4 = Comment.create!(
