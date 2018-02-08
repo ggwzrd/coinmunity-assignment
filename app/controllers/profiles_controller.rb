@@ -25,6 +25,7 @@ class ProfilesController < BaseController
     picture_added = profile_params[:picture] && !@profile[:picture]
     bio_added = profile_params[:bio] && !@profile[:bio]
 
+    temp_params = profile_params
     temp_params[:first_name] = profile_params[:first_name] ? profile_params[:first_name] : @profile[:first_name]
     temp_params[:last_name] = profile_params[:last_name] ? profile_params[:last_name] : @profile[:last_name]
     temp_params[:picture] = profile_params[:picture] ? profile_params[:picture] : @profile[:picture]
