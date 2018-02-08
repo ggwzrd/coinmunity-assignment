@@ -21,9 +21,10 @@ class UsersController < BaseController
         except: :content,
         include: [
           { user: { only: [:id, :trustiness, :silenced], include: { profile: { only: [:id, :nickname, :picture] } } } },
-          { tags: { only: :id } },
+          { tags: { only: [:id, :name] } },
           { trusts: { only: :id } },
           { reports: { only: :id }, include: { source: { only: :id } } },
+          { comments: { only: :id } },
           ] ) }
     end
   end
