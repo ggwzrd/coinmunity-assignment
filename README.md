@@ -24,7 +24,7 @@ This project was made by a team of Codaisseur students:
 
 ## Assignment
 
-Creating a community Microservice for CoiNerd, a platform for cryptocurrency enthusiasts. Users can browse posts, create posts and respond to other posts with Trusts, Reports and Comments. See below for more information regarding the assignment.
+Creating a community Microservice for CoiNerd, a platform for cryptocurrency enthusiasts. Users can browse posts, create posts and respond to other posts with Trusts, Reports and Comments. Each user has a trustiness score. A user can only post with a trustiness score > -10 and can only report/trust with a trustiness score of >= 0. The trustiness score can be increased by daily sign-in and received trusts. It will be decreased when a user's posts are reported. See below for more information regarding the assignment.
 
 * Database: PostgreSQL
 * Backend: Ruby on Rails
@@ -177,4 +177,3 @@ In this case, the only way for the user to be able to be part of the community a
 is to demonstrate his / her commitment to it. This can be done each time that you login
 into the platform. Each user will receive **0.5** points every time he / she logs into the
 platform, with a maximum of **once per day**.
->>>>>>> a4d0de03db583be3a85719ddb991680ba9ebd2eb
