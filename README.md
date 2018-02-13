@@ -9,9 +9,9 @@ This project was made by a team of Codaisseur students:
 * [Marc Smalbrugge](https://github.com/PamperBoy)
 * [Sebastian van Hesteren](https://github.com/svanhesteren)
 
-![Home Page](app/assets/images/PostsPage.png) ![Profile Page](app/assets/images/ProfilePage.png)
-![Post Page](app/assets/images/PostPage.png) ![Post Page](app/assets/images/PostPageBottom.png)
-![Post Trust](app/assets/images/PostPageTrust.png) ![Post Report](app/assets/images/PostPageReport.png)
+![Home Page](app/assets/images/PostsPage.png) | ![Profile Page](app/assets/images/ProfilePage.png)
+![Post Page](app/assets/images/PostPage.png) | ![Post Page](app/assets/images/PostPageBottom.png)
+![Post Trust](app/assets/images/PostPageTrust.png) | ![Post Report](app/assets/images/PostPageReport.png)
 
 ## Assignment
 
