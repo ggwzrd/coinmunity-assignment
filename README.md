@@ -10,8 +10,8 @@ This project was made by a team of Codaisseur students:
 * [Sebastian van Hesteren](https://github.com/svanhesteren)
 
 <p align="middle">
-<img src="app/assets/images/PostsPage.png" width="450" />
-<img src="app/assets/images/ProfilePage.png" width="450" />
+<img src="app/assets/images/PostsPage.png" width="425" />
+<img src="app/assets/images/ProfilePage.png" width="425" />
 </p>
 <p align="middle">
 <img src="app/assets/images/PostPage.png" width="500" />
