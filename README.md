@@ -9,9 +9,18 @@ This project was made by a team of Codaisseur students:
 * [Marc Smalbrugge](https://github.com/PamperBoy)
 * [Sebastian van Hesteren](https://github.com/svanhesteren)
 
-![Home Page](app/assets/images/PostsPage.png) | ![Profile Page](app/assets/images/ProfilePage.png)
-![Post Page](app/assets/images/PostPage.png) | ![Post Page](app/assets/images/PostPageBottom.png)
-![Post Trust](app/assets/images/PostPageTrust.png) | ![Post Report](app/assets/images/PostPageReport.png)
+<p align="middle">
+<img src="app/assets/images/PostsPage.png" width="100" />
+<img src="app/assets/images/ProfilePage.png" width="100" />
+</p>
+<p align="middle">
+<img src="app/assets/images/PostPage.png" width="100" />
+<img src="app/assets/images/PostPageBottom.png" width="100" />
+</p>
+<p align="middle">
+<img src="app/assets/images/PostPageTrust.png" width="100" />
+<img src="app/assets/images/PostPageReport.png" width="100" />
+</p>
 
 ## Assignment
 
