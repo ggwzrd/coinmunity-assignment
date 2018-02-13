@@ -14,12 +14,12 @@ This project was made by a team of Codaisseur students:
 <img src="app/assets/images/ProfilePage.png" width="425" />
 </p>
 <p align="middle">
-<img src="app/assets/images/PostPage.png" width="500" />
-<img src="app/assets/images/PostPageBottom.png" width="500" />
+<img src="app/assets/images/PostPage.png" width="425" />
+<img src="app/assets/images/PostPageBottom.png" width="425" />
 </p>
 <p align="middle">
-<img src="app/assets/images/PostPageTrust.png" width="500" />
-<img src="app/assets/images/PostPageReport.png" width="500" />
+<img src="app/assets/images/PostPageTrust.png" width="425" />
+<img src="app/assets/images/PostPageReport.png" width="425" />
 </p>
 
 ## Assignment
