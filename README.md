@@ -2,6 +2,17 @@
 
 Rails Backend made during the final Real World Project weeks of the 9-week Codaisseur Academy. The assignment was given by [Guilio Gallerini](http://www.giuliogallerini.com/) of [CoiNerd](https://twitter.com/coinerdofficial).
 
+This project was made by a team of Codaisseur students:
+* [Adinda Bohte](https://github.com/Abohte)
+* [Bruna da Fonseca](https://github.com/brunadafonseca)
+* [Fandy Tsui](https://github.com/fandytcc)
+* [Marc Smalbrugge](https://github.com/PamperBoy)
+* [Sebastian van Hesteren](https://github.com/svanhesteren)
+
+![Home Page](app/assets/images/PostsPage.png) ![Profile Page](app/assets/images/ProfilePage.png)
+![Post Page](app/assets/images/PostPage.png) ![Post Page](app/assets/images/PostPageBottom.png)
+![Post Trust](app/assets/images/PostPageTrust.png) ![Post Report](app/assets/images/PostPageReport.png)
+
 ## Assignment
 
 Creating a community Microservice for CoiNerd, a platform for cryptocurrency enthusiasts. Users can browse posts, create posts and respond to other posts with Trusts, Reports and Comments. See below for more information regarding the assignment.
@@ -10,13 +21,6 @@ Creating a community Microservice for CoiNerd, a platform for cryptocurrency ent
 * Backend: Ruby on Rails
 * Frontend: React.js
 * WebSockets via Action Cable
-
-This project was made by a team of Codaisseur students:
-* [Adinda Bohte](https://github.com/Abohte)
-* [Bruna da Fonseca](https://github.com/brunadafonseca)
-* [Fandy Tsui](https://github.com/fandytcc)
-* [Marc Smalbrugge](https://github.com/PamperBoy)
-* [Sebastian van Hesteren](https://github.com/svanhesteren)
 
 See the [original repository](https://github.com/Abohte/coinmunity-assignment-backend).
 
